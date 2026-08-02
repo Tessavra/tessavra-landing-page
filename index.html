@@ -275,6 +275,183 @@
         border-bottom: 1px solid var(--color-border);
       }
     }
+
+    /* ── Fluid Animations & Interactivity ────────────────── */
+
+    /* ── Keyframes ────────────────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideLeft {
+      from { opacity: 0; transform: translateX(-36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeSlideRight {
+      from { opacity: 0; transform: translateX(36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulseRing {
+      0%   { box-shadow: 0 0 0 0 rgba(79,70,229,0.45); }
+      70%  { box-shadow: 0 0 0 12px rgba(79,70,229,0); }
+      100% { box-shadow: 0 0 0 0 rgba(79,70,229,0); }
+    }
+    @keyframes gradientDrift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-14px) rotate(3deg); }
+    }
+    @keyframes morphBlob {
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      25%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      50%      { border-radius: 50% 60% 30% 60% / 30% 50% 70% 50%; }
+      75%      { border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%; }
+    }
+
+    /* ── Default state — elements hidden until revealed ───────── */
+    .anim-hidden {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(.22,1,.36,1),
+                  transform 0.7s cubic-bezier(.22,1,.36,1);
+    }
+    .anim-hidden.anim-from-left {
+      opacity: 0;
+      transform: translateX(-36px);
+    }
+    .anim-hidden.anim-from-right {
+      opacity: 0;
+      transform: translateX(36px);
+    }
+    .anim-hidden.anim-scale {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    .anim-hidden.anim-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Hero entrance (handled by JS on load, not scroll) ────── */
+    .hero-badge       { transition-delay: 0.08s; }
+    .hero h1          { transition-delay: 0.20s; }
+    .hero p           { transition-delay: 0.34s; }
+    .hero-actions     { transition-delay: 0.46s; }
+    .hero-visual      { transition-delay: 0.28s; }
+
+    /* ── Value card stagger ─────────────────────────────────── */
+    .value-grid .value-card {
+      transition-delay: 0s;
+    }
+    .value-grid .value-card:nth-child(2) {
+      transition-delay: 0.12s;
+    }
+    .value-grid .value-card:nth-child(3) {
+      transition-delay: 0.24s;
+    }
+
+    /* ── Feature row alternation ────────────────────────────── */
+    .feature-copy {
+      transition-delay: 0s;
+    }
+    .feature-visual {
+      transition-delay: 0.14s;
+    }
+
+    /* ── Enhanced hover states ──────────────────────────────── */
+    .btn-primary {
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary:hover {
+      animation: pulseRing 2s ease-in-out infinite;
+      transform: translateY(-2px);
+    }
+    .value-card {
+      transition: box-shadow .25s ease, transform .2s ease;
+    }
+    .value-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,.09), 0 4px 8px rgba(0,0,0,.04);
+      transform: translateY(-4px);
+    }
+    .feature-checklist svg {
+      transition: stroke-dasharray .4s ease, stroke-dashoffset .4s ease;
+    }
+    .btn-outline:hover, .btn-white:hover, .btn-ghost:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ── CTA section gradient animation ─────────────────────── */
+    .cta-section {
+      background-size: 200% 200%;
+      animation: gradientDrift 10s ease infinite;
+    }
+
+    /* ── Decorative floating blobs in hero ──────────────────── */
+    .hero-visual { overflow: visible !important; }
+    .hero-visual::before,
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-visual::before {
+      width: 120px; height: 120px;
+      top: -20px; right: -20px;
+      background: rgba(79,70,229,.12);
+      animation: morphBlob 8s ease-in-out infinite, floatSlow 6s ease-in-out infinite;
+    }
+    .hero-visual::after {
+      width: 80px; height: 80px;
+      bottom: 10px; left: -15px;
+      background: rgba(99,102,241,.10);
+      animation: morphBlob 10s ease-in-out infinite reverse, floatSlow 8s ease-in-out infinite reverse;
+    }
+    .hero-visual-inner,
+    .mock-stat-card,
+    .mock-sidebar,
+    .mock-topbar {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Nav active state ───────────────────────────────────── */
+    .nav-links a.active {
+      color: var(--color-text) !important;
+      font-weight: 600;
+    }
+    .nav-links a.active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--color-accent);
+      margin-top: 4px;
+      border-radius: 1px;
+      transform: scaleX(1);
+      transition: transform .25s ease;
+    }
+
+
+    /* ── Accessibility: reduced motion ────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .anim-hidden {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -295,18 +472,18 @@
   </nav>
 
   <!-- ════════ HERO ════════ -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-animate>
     <div class="container">
       <div class="hero-copy">
-        <span class="hero-badge">Conversation Intelligence</span>
-        <h1>Understand every customer conversation.</h1>
-        <p>Tessavra turns your support interactions and customer feedback into actionable intelligence&mdash;automated QA, real-time coaching, and voice-of-customer insights, all in one place.</p>
-        <div class="hero-actions">
+        <span class="hero-badge anim-hidden">Conversation Intelligence</span>
+        <h1 class="anim-hidden">Understand every customer conversation.</h1>
+        <p class="anim-hidden">Tessavra turns your support interactions and customer feedback into actionable intelligence&mdash;automated QA, real-time coaching, and voice-of-customer insights, all in one place.</p>
+        <div class="hero-actions anim-hidden">
           <a href="#cta" class="btn btn-primary">Request a Demo</a>
           <a href="#features" class="btn btn-outline">See How It Works</a>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual anim-scale" aria-hidden="true">
         <div class="mock-sidebar"></div>
         <div class="mock-topbar"></div>
         <div class="hero-visual-inner">
@@ -328,27 +505,27 @@
   </section>
 
   <!-- ════════ VALUE PROPOSITION ════════ -->
-  <section class="value-prop" id="value">
+  <section class="value-prop" id="value" data-animate>
     <div class="container">
-      <p class="section-label">Why Tessavra</p>
-      <h2 class="section-title">Stop missing what matters in every interaction.</h2>
-      <p class="section-subtitle">Customer conversations are your most underused asset. Tessavra surfaces the insights hiding in transcripts, recordings, and chats&mdash;so you can act on them before it's too late.</p>
+      <p class="section-label anim-hidden">Why Tessavra</p>
+      <h2 class="section-title anim-hidden">Stop missing what matters in every interaction.</h2>
+      <p class="section-subtitle anim-hidden">Customer conversations are your most underused asset. Tessavra surfaces the insights hiding in transcripts, recordings, and chats&mdash;so you can act on them before it's too late.</p>
       <div class="value-grid">
-        <div class="value-card">
+        <div class="value-card anim-hidden">
           <div class="value-icon">
             <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
           </div>
           <h3>Automate Support QA</h3>
           <p>Score every ticket and call against custom rubrics. Catch compliance gaps, coaching opportunities, and quality drift without manual sampling.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card anim-hidden">
           <div class="value-icon">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <h3>Coach Agents in Real Time</h3>
           <p>Surface live suggestions during calls&mdash;next best actions, escalation triggers, script adherence&mdash;so every agent performs at their best, every shift.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card anim-hidden">
           <div class="value-icon">
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
@@ -360,16 +537,16 @@
   </section>
 
   <!-- ════════ FEATURES ════════ -->
-  <section class="features" id="features">
+  <section class="features" id="features" data-animate>
     <div class="container">
-      <p class="section-label">Features</p>
-      <h2 class="section-title">Built for teams that take customer experience seriously.</h2>
-      <p class="section-subtitle">From automated scoring to cross-functional insights, Tessavra integrates into the workflows your team already uses.</p>
+      <p class="section-label anim-hidden">Features</p>
+      <h2 class="section-title anim-hidden">Built for teams that take customer experience seriously.</h2>
+      <p class="section-subtitle anim-hidden">From automated scoring to cross-functional insights, Tessavra integrates into the workflows your team already uses.</p>
       <div class="features-list">
 
         <!-- Feature 1 -->
         <div class="feature-row">
-          <div class="feature-visual light" aria-hidden="true">
+          <div class="feature-visual light anim-scale" aria-hidden="true">
             <div class="mock-transcript">
               <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:75%"></div></div>
               <div class="mock-msg"><div class="mock-avatar gray"></div><div class="mock-bubble dark" style="width:60%"></div></div>
@@ -378,7 +555,7 @@
               <div class="mock-sentiment"><div class="sentiment-dot green"></div><div class="sentiment-dot yellow"></div><div class="sentiment-dot red"></div></div>
             </div>
           </div>
-          <div class="feature-copy">
+          <div class="feature-copy anim-from-right">
             <p class="feature-tag">Analytics Dashboard</p>
             <h3>Full visibility into conversation quality</h3>
             <p>Track QA scores, sentiment trends, resolution rates, and agent performance&mdash;at scale. Custom dashboards surface the metrics that matter to each stakeholder.</p>
@@ -401,7 +578,7 @@
 
         <!-- Feature 2 -->
         <div class="feature-row reverse">
-          <div class="feature-visual dark" aria-hidden="true">
+          <div class="feature-visual dark anim-scale" aria-hidden="true">
             <div class="mock-transcript">
               <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:80%;opacity:.6"></div></div>
               <div class="mock-msg"><div class="mock-avatar gray"></div><div class="mock-bubble" style="width:55%;opacity:.4"></div></div>
@@ -410,7 +587,7 @@
               <div style="height:8px;border-radius:4px;background:rgba(255,255,255,.15);width:65%"></div>
             </div>
           </div>
-          <div class="feature-copy">
+          <div class="feature-copy anim-from-left">
             <p class="feature-tag">Transcription &amp; Search</p>
             <h3>Every conversation, searchable and analyzable</h3>
             <p>Powerful transcription across voice, chat, and video. Search by keyword, speaker, intent, or outcome&mdash;then cluster related threads for pattern detection.</p>
@@ -436,12 +613,12 @@
   </section>
 
   <!-- ════════ CTA ════════ -->
-  <section class="cta-section" id="cta">
+  <section class="cta-section" id="cta" data-animate>
     <div class="container">
-      <p class="section-label">Get Started</p>
-      <h2 class="section-title">Ready to make every customer conversation count?</h2>
-      <p class="section-subtitle">See Tessavra in action. Request a personalised demo and discover how conversation intelligence transforms support, coaching, and product decisions.</p>
-      <div class="cta-actions">
+      <p class="section-label anim-hidden">Get Started</p>
+      <h2 class="section-title anim-hidden">Ready to make every customer conversation count?</h2>
+      <p class="section-subtitle anim-hidden">See Tessavra in action. Request a personalised demo and discover how conversation intelligence transforms support, coaching, and product decisions.</p>
+      <div class="cta-actions anim-scale">
         <a href="mailto:hello@tessavra.com?subject=Demo%20Request" class="btn btn-white">Request a Demo</a>
         <a href="mailto:hello@tessavra.com" class="btn btn-ghost">Contact Sales</a>
       </div>
@@ -470,5 +647,116 @@
       }
     });
   </script>
-</body>
+
+  <script>
+    // Fluid animations — IntersectionObserver reveals + scroll spy
+    (() => {
+      function animateHeroEntrance() {
+        const targets = document.querySelectorAll('[data-animate].hero .anim-hidden');
+        targets.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+        });
+        const visual = document.querySelector('.hero-visual');
+        if (visual) {
+          visual.style.opacity = '0';
+          visual.style.transform = 'scale(0.96)';
+        }
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            targets.forEach((el, i) => {
+              const delay = 80 + i * 140;
+              setTimeout(() => {
+                el.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+              }, delay);
+            });
+            if (visual) {
+              setTimeout(() => {
+                visual.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
+                visual.style.opacity = '1';
+                visual.style.transform = 'none';
+              }, 280);
+            }
+          });
+        });
+      }
+
+      function initReveals() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('anim-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
+        );
+        document.querySelectorAll('.anim-hidden:not(.hero .anim-hidden)').forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      function initScrollSpy() {
+        const sections = document.querySelectorAll('section[id]');
+        const links = document.querySelectorAll('.nav-links a[href^="#"]');
+        if (!sections.length || !links.length) return;
+        const spy = new IntersectionObserver(
+          (entries) => {
+            let closest = null;
+            let closestDist = Infinity;
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const rect = entry.target.getBoundingClientRect();
+                const score = rect.top >= 0 ? Math.abs(rect.top) : Infinity;
+                if (score < closestDist) {
+                  closestDist = score;
+                  closest = entry.target;
+                }
+              }
+            });
+            links.forEach(link => link.classList.remove('active'));
+            if (closest) {
+              const matchingLink = document.querySelector(
+                '.nav-links a[href="' + '#' + closest.id + '"]'
+              );
+              matchingLink && matchingLink.classList.add('active');
+            }
+          },
+          { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
+        );
+        sections.forEach(s => spy.observe(s));
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          if (id === '#') return;
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            const offset = 72;
+            const y = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        });
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          animateHeroEntrance();
+          initReveals();
+          initScrollSpy();
+        });
+      } else {
+        animateHeroEntrance();
+        initReveals();
+        initScrollSpy();
+      }
+    })();
+  </script>
+  </body>
 </html>

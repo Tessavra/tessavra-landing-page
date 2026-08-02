@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tessavra — Conversation Intelligence Platform</title>
+  <meta name="description" content="Tessavra surfaces insights from every customer conversation. Automate support QA, coach agents in real time, and turn voice-of-customer data into product decisions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:        #ffffff;
+      --color-bg-alt:    #f8fafc;
+      --color-text:      #0f172a;
+      --color-text-muted:#475569;
+      --color-accent:    #4f46e5;
+      --color-accent-hover:#4338ca;
+      --color-border:    #e2e8f0;
+      --max-width:       1120px;
+      --radius:          8px;
+      --shadow-sm:       0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:       0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-accent-hover); text-decoration: underline; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Buttons ──────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 28px; border-radius: var(--radius); font-weight: 600;
+      font-size: .9375rem; cursor: pointer; border: none; gap: 8px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn-primary {
+      background: var(--color-accent); color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover); color: #fff;
+      transform: translateY(-1px); box-shadow: var(--shadow-md);
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent; color: var(--color-accent);
+      border: 1.5px solid var(--color-accent);
+    }
+    .btn-outline:hover {
+      background: var(--color-accent); color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Navigation ───────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-size: 1.25rem; font-weight: 800; color: var(--color-text); letter-spacing: -.02em; }
+    .logo span { color: var(--color-accent); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--color-text-muted); font-size: .875rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--color-text); text-decoration: none; }
+    .nav-cta { font-size: .875rem !important; padding: 8px 20px !important; }
+
+    /* Mobile menu toggle */
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .menu-toggle svg { width: 24px; height: 24px; stroke: var(--color-text); }
+
+    /* ── Hero ─────────────────────────────────────── */
+    .hero {
+      padding: 80px 0 64px;
+      background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    }
+    .hero .container {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      color: var(--color-accent); background: rgba(79,70,229,.08);
+      padding: 4px 12px; border-radius: 99px; margin-bottom: 16px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+      line-height: 1.15; letter-spacing: -.03em; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--color-accent); }
+    .hero p { font-size: 1.125rem; color: var(--color-text-muted); max-width: 520px; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual {
+      aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-visual-inner {
+      width: 88%; padding: 20px;
+    }
+    .mock-chart-bar {
+      height: 12px; border-radius: 6px; margin-bottom: 10px;
+      background: rgba(255,255,255,.55);
+    }
+    .mock-chart-bar.accent { background: var(--color-accent); width: 72%; }
+    .mock-chart-row { display: flex; gap: 8px; margin-bottom: 12px; }
+    .mock-sidebar {
+      position: absolute; left: 24px; top: 24px; bottom: 24px; width: 36px;
+      border-radius: 6px; background: rgba(255,255,255,.35);
+    }
+    .mock-topbar {
+      position: absolute; top: 24px; right: 24px; left: 76px; height: 16px;
+      border-radius: 4px; background: rgba(255,255,255,.35);
+    }
+    .mock-stat-card {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      height: 64px; border-radius: 8px; background: rgba(255,255,255,.6);
+      display: flex; align-items: center; padding: 12px; gap: 12px;
+    }
+    .mock-stat-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--color-accent); opacity: .7; }
+    .mock-stat-lines { flex: 1; }
+    .mock-stat-line { height: 6px; border-radius: 3px; background: rgba(0,0,0,.1); margin-bottom: 5px; }
+    .mock-stat-line:last-child { width: 60%; margin-bottom: 0; }
+
+    /* ── Value Proposition ────────────────────────── */
+    .value-prop { padding: 80px 0; }
+    .section-label {
+      font-size: .8125rem; font-weight: 600; text-transform: uppercase;
+      color: var(--color-accent); letter-spacing: .06em; margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700;
+      letter-spacing: -.02em; margin-bottom: 12px;
+    }
+    .section-subtitle {
+      font-size: 1.0625rem; color: var(--color-text-muted);
+      max-width: 600px; margin-bottom: 48px;
+    }
+    .value-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .value-card {
+      padding: 28px; border-radius: 12px;
+      border: 1px solid var(--color-border); background: var(--color-bg);
+      transition: box-shadow .25s, transform .2s;
+    }
+    .value-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .value-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(79,70,229,.08); display: flex;
+      align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .value-icon svg { width: 22px; height: 22px; stroke: var(--color-accent); fill: none; stroke-width: 1.8; }
+    .value-card h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px; }
+    .value-card p  { font-size: .9375rem; color: var(--color-text-muted); line-height: 1.65; }
+
+    /* ── Features ─────────────────────────────────── */
+    .features { padding: 80px 0; background: var(--color-bg-alt); }
+    .features-list { display: flex; flex-direction: column; gap: 64px; }
+    .feature-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .feature-row.reverse .feature-visual { order: 1; }
+    .feature-row.reverse .feature-copy  { order: 2; }
+    .feature-visual {
+      aspect-ratio: 16/10; border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .feature-visual.dark {
+      background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feature-visual.light {
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mock-transcript {
+      width: 82%; padding: 16px;
+    }
+    .mock-msg {
+      display: flex; gap: 8px; margin-bottom: 8px;
+    }
+    .mock-avatar { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+    .mock-avatar.blue   { background: #818cf8; }
+    .mock-avatar.gray   { background: rgba(0,0,0,.15); }
+    .mock-bubble {
+      flex: 1; height: 8px; border-radius: 4px;
+      background: rgba(255,255,255,.25);
+    }
+    .mock-bubble.dark { background: rgba(0,0,0,.1); }
+    .mock-sentiment {
+      position: absolute; bottom: 16px; right: 16px;
+      display: flex; gap: 6px;
+    }
+    .sentiment-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .sentiment-dot.green { background: #34d399; }
+    .sentiment-dot.yellow { background: #fbbf24; }
+    .sentiment-dot.red { background: #f87171; }
+
+    .feature-tag {
+      font-size: .75rem; font-weight: 600; text-transform: uppercase;
+      color: var(--color-accent); letter-spacing: .04em; margin-bottom: 8px;
+    }
+    .feature-copy h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+    .feature-copy p  { font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 20px; }
+    .feature-checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .feature-checklist li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .9375rem; color: var(--color-text-muted);
+    }
+    .feature-checklist svg { flex-shrink: 0; width: 18px; height: 18px; stroke: #10b981; fill: none; stroke-width: 2; margin-top: 2px; }
+
+    /* ── CTA Section ──────────────────────────────── */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #312e81 0%, #4338ca 50%, #6366f1 100%);
+      color: #fff; text-align: center;
+    }
+    .cta-section .section-label { color: rgba(255,255,255,.65); }
+    .cta-section .section-title { color: #fff; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-section .section-subtitle { color: rgba(255,255,255,.75); margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .btn-white { background: #fff; color: var(--color-accent); }
+    .btn-white:hover { background: #f1f5f9; color: var(--color-accent); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.15); text-decoration: none; }
+    .btn-ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.25); }
+    .btn-ghost:hover { background: rgba(255,255,255,.2); color: #fff; text-decoration: none; }
+
+    /* ── Footer ───────────────────────────────────── */
+    footer {
+      padding: 40px 0; border-top: 1px solid var(--color-border);
+      background: var(--color-bg);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-copy { font-size: .8125rem; color: var(--color-text-muted); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: .8125rem; color: var(--color-text-muted); }
+    .footer-links a:hover { color: var(--color-text); text-decoration: none; }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr; gap: 32px; }
+      .hero { padding: 48px 0 40px; }
+      .value-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr !important; gap: 24px; }
+      .feature-row.reverse .feature-visual { order: 0; }
+      .feature-row.reverse .feature-copy  { order: 0; }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: #fff; padding: 20px 24px; gap: 16px;
+        border-bottom: 1px solid var(--color-border);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ NAV ════════ -->
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">tess<span>avra</span></a>
+      <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#value">Why Tessavra</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#cta" class="btn btn-primary nav-cta">Request Demo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="hero-badge">Conversation Intelligence</span>
+        <h1>Understand every customer conversation.</h1>
+        <p>Tessavra turns your support interactions and customer feedback into actionable intelligence&mdash;automated QA, real-time coaching, and voice-of-customer insights, all in one place.</p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-primary">Request a Demo</a>
+          <a href="#features" class="btn btn-outline">See How It Works</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mock-sidebar"></div>
+        <div class="mock-topbar"></div>
+        <div class="hero-visual-inner">
+          <div class="mock-chart-bar accent"></div>
+          <div class="mock-chart-bar" style="width:58%"></div>
+          <div class="mock-chart-bar" style="width:85%"></div>
+          <div class="mock-chart-bar" style="width:42%"></div>
+          <div class="mock-chart-bar" style="width:70%"></div>
+        </div>
+        <div class="mock-stat-card">
+          <div class="mock-stat-icon"></div>
+          <div class="mock-stat-lines">
+            <div class="mock-stat-line" style="width:80%"></div>
+            <div class="mock-stat-line" style="width:55%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ VALUE PROPOSITION ════════ -->
+  <section class="value-prop" id="value">
+    <div class="container">
+      <p class="section-label">Why Tessavra</p>
+      <h2 class="section-title">Stop missing what matters in every interaction.</h2>
+      <p class="section-subtitle">Customer conversations are your most underused asset. Tessavra surfaces the insights hiding in transcripts, recordings, and chats&mdash;so you can act on them before it's too late.</p>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3>Automate Support QA</h3>
+          <p>Score every ticket and call against custom rubrics. Catch compliance gaps, coaching opportunities, and quality drift without manual sampling.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Coach Agents in Real Time</h3>
+          <p>Surface live suggestions during calls&mdash;next best actions, escalation triggers, script adherence&mdash;so every agent performs at their best, every shift.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Voice of Customer Insights</h3>
+          <p>Detect trending topics, sentiment shifts, and feature requests across every channel. Feed actionable intelligence back to product and design teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FEATURES ════════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">Built for teams that take customer experience seriously.</h2>
+      <p class="section-subtitle">From automated scoring to cross-functional insights, Tessavra integrates into the workflows your team already uses.</p>
+      <div class="features-list">
+
+        <!-- Feature 1 -->
+        <div class="feature-row">
+          <div class="feature-visual light" aria-hidden="true">
+            <div class="mock-transcript">
+              <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:75%"></div></div>
+              <div class="mock-msg"><div class="mock-avatar gray"></div><div class="mock-bubble dark" style="width:60%"></div></div>
+              <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:85%"></div></div>
+              <div class="mock-msg"><div class="mock-avatar gray"></div><div class="mock-bubble dark" style="width:50%"></div></div>
+              <div class="mock-sentiment"><div class="sentiment-dot green"></div><div class="sentiment-dot yellow"></div><div class="sentiment-dot red"></div></div>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p class="feature-tag">Analytics Dashboard</p>
+            <h3>Full visibility into conversation quality</h3>
+            <p>Track QA scores, sentiment trends, resolution rates, and agent performance&mdash;at scale. Custom dashboards surface the metrics that matter to each stakeholder.</p>
+            <ul class="feature-checklist">
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Automated quality scoring against configurable rubrics
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Sentiment and topic trend analysis over time
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Agent leaderboard and coaching recommendations
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-row reverse">
+          <div class="feature-visual dark" aria-hidden="true">
+            <div class="mock-transcript">
+              <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:80%;opacity:.6"></div></div>
+              <div class="mock-msg"><div class="mock-avatar gray"></div><div class="mock-bubble" style="width:55%;opacity:.4"></div></div>
+              <div class="mock-msg"><div class="mock-avatar blue"></div><div class="mock-bubble" style="width:70%;opacity:.5"></div></div>
+              <div style="margin-top:16px;height:8px;border-radius:4px;background:rgba(255,255,255,.2);width:45%"></div>
+              <div style="height:8px;border-radius:4px;background:rgba(255,255,255,.15);width:65%"></div>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p class="feature-tag">Transcription &amp; Search</p>
+            <h3>Every conversation, searchable and analyzable</h3>
+            <p>Powerful transcription across voice, chat, and video. Search by keyword, speaker, intent, or outcome&mdash;then cluster related threads for pattern detection.</p>
+            <ul class="feature-checklist">
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Multi-language transcription with speaker diarization
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Semantic search across all recorded interactions
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                Automatic theme clustering and topic tagging
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ CTA ════════ -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <p class="section-label">Get Started</p>
+      <h2 class="section-title">Ready to make every customer conversation count?</h2>
+      <p class="section-subtitle">See Tessavra in action. Request a personalised demo and discover how conversation intelligence transforms support, coaching, and product decisions.</p>
+      <div class="cta-actions">
+        <a href="mailto:hello@tessavra.com?subject=Demo%20Request" class="btn btn-white">Request a Demo</a>
+        <a href="mailto:hello@tessavra.com" class="btn btn-ghost">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 Tessavra. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple mobile nav toggle
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.menu-toggle') && !e.target.closest('.nav-links')) {
+        document.querySelector('.nav-links').classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

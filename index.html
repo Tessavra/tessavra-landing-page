@@ -3,809 +3,719 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tessavra — Conversation Intelligence Platform</title>
-  <meta name="description" content="Tessavra surfaces insights from every customer conversation. Automate support QA, coach agents in real time, and turn voice-of-customer data into product decisions.">
+  <title>Tessavra — Evidence-linked conversation intelligence for enterprise support</title>
+  <meta name="description" content="Tessavra scores customer support conversations against your rubric and links every finding to the exact transcript evidence that produced it — for QA, coaching, and voice-of-customer intelligence.">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    /* ── Reset & Base ─────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-bg:          #F9F6F1;
-      --color-bg-alt:      #F2EDE5;
-      --color-text:        #2D2926;
-      --color-text-muted:  #6B6158;
-      --color-accent:      #C2522A;
-      --color-accent-hover:#A94420;
-      --color-border:      #DDD5CA;
-      --max-width:         1120px;
-      --radius-sm:         6px;
-      --radius-md:         10px;
-      --radius-lg:         16px;
-      --shadow-layered:    0 2px 8px rgba(45,41,38,.06), 0 8px 24px rgba(45,41,38,.08);
-      --shadow-elevated:   0 4px 12px rgba(45,41,38,.07), 0 16px 40px rgba(45,41,38,.10);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, .logo, .section-title {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-weight: 400;
-      letter-spacing: -.01em;
-    }
-
-    img { max-width: 100%; display: block; }
-    a   { color: var(--color-accent); text-decoration: none; }
-    a:hover { color: var(--color-accent-hover); text-decoration: underline; }
-
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-
-    /* Noise texture overlay on backgrounds */
-    body { position: relative; }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-      opacity: .5;
-    }
-
-    /* ── Buttons ──────────────────────────────────── */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 32px; border-radius: var(--radius-sm); font-weight: 600;
-      font-size: .9375rem; cursor: pointer; border: none; gap: 8px;
-      transition: background .2s ease, transform .15s ease, box-shadow .25s ease;
-      letter-spacing: .01em;
-    }
-    .btn-primary {
-      background: var(--color-accent); color: #fff;
-      box-shadow: 0 2px 8px rgba(194,82,42,.25);
-    }
-    .btn-primary:hover {
-      background: var(--color-accent-hover); color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(194,82,42,.3);
-      text-decoration: none;
-    }
-    .btn-outline {
-      background: transparent; color: var(--color-accent);
-      border: 1.5px solid var(--color-accent);
-    }
-    .btn-outline:hover {
-      background: var(--color-accent); color: #fff;
-      text-decoration: none;
-    }
-
-    /* ── Navigation ───────────────────────────────── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(249,246,241,.88); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-    }
-    nav .container {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .logo { font-size: 1.25rem; font-weight: 800; color: var(--color-text); letter-spacing: -.02em; }
-    .logo span { color: var(--color-accent); }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--color-text-muted); font-size: .875rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--color-text); text-decoration: none; }
-    .nav-cta { font-size: .875rem !important; padding: 8px 20px !important; }
-
-    /* Mobile menu toggle */
-    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-    .menu-toggle svg { width: 24px; height: 24px; stroke: var(--color-text); }
-
-    /* ── Hero ─────────────────────────────────────── */
-    .hero {
-      padding: 100px 0 80px;
-      background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
-      overflow: visible;
-    }
-    .hero .container {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
-    }
-    .hero-badge {
-      display: inline-block; font-size: .6875rem; font-weight: 600;
-      color: var(--color-accent); background: rgba(233,168,87,.15);
-      padding: 5px 14px; border-radius: 99px; margin-bottom: 20px;
-      letter-spacing: .08em; text-transform: uppercase;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.25rem);
-      line-height: 1.12; margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.125rem; color: var(--color-text-muted);
-      max-width: 500px; margin-bottom: 32px; line-height: 1.7;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-visual {
-      aspect-ratio: 4/3; border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-layered);
-      background: linear-gradient(135deg, #F5E6D8 0%, #E8D4BF 100%);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .hero-visual-inner {
-      width: 88%; padding: 20px;
-    }
-    .mock-chart-bar {
-      height: 12px; border-radius: 4px; margin-bottom: 12px;
-      background: rgba(45,41,38,.12);
-    }
-    .mock-chart-bar.accent { background: var(--color-accent); width: 72%; }
-    .mock-chart-row { display: flex; gap: 8px; margin-bottom: 12px; }
-    .mock-sidebar {
-      position: absolute; left: 28px; top: 28px; bottom: 28px; width: 36px;
-      border-radius: 6px; background: rgba(45,41,38,.08);
-    }
-    .mock-topbar {
-      position: absolute; top: 28px; right: 28px; left: 80px; height: 14px;
-      border-radius: 4px; background: rgba(45,41,38,.08);
-    }
-    .mock-stat-card {
-      position: absolute; bottom: 28px; left: 28px; right: 28px;
-      height: 68px; border-radius: var(--radius-sm);
-      background: rgba(255,255,255,.7);
-      display: flex; align-items: center; padding: 14px; gap: 12px;
-    }
-    .mock-stat-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--color-accent); opacity: .75; }
-    .mock-stat-lines { flex: 1; }
-    .mock-stat-line { height: 6px; border-radius: 3px; background: rgba(45,41,38,.1); margin-bottom: 6px; }
-    .mock-stat-line:last-child { width: 60%; margin-bottom: 0; }
-
-    /* ── Value Proposition ────────────────────────── */
-    .value-prop { padding: 96px 0 80px; }
-    .section-label {
-      font-size: .6875rem; font-weight: 600; text-transform: uppercase;
-      color: #7A9B76; letter-spacing: .1em; margin-bottom: 10px;
-    }
-    .section-title {
-      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-      margin-bottom: 14px;
-    }
-    .section-subtitle {
-      font-size: 1.0625rem; color: var(--color-text-muted);
-      max-width: 600px; margin-bottom: 48px;
-    }
-    /* Asymmetric value grid — break strict symmetry */
-    .value-grid {
-      display: grid; grid-template-columns: 1.1fr .9fr 1fr;
-      grid-template-rows: auto auto; gap: 24px;
-    }
-    .value-grid .value-card:nth-child(1) {
-      grid-column: 1 / 2; grid-row: 1 / 3; min-height: 280px;
-    }
-    .value-grid .value-card:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
-    .value-grid .value-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 3; min-height: 280px; }
-    .value-card {
-      padding: 32px 28px; border-radius: var(--radius-md);
-      border: 1px solid var(--color-border); background: var(--color-bg);
-      box-shadow: 0 1px 4px rgba(45,41,38,.04);
-      transition: box-shadow .25s ease, transform .2s ease;
-    }
-    .value-card:hover {
-      box-shadow: var(--shadow-layered);
-      transform: translateY(-3px);
-    }
-    .value-icon {
-      width: 48px; height: 48px; border-radius: var(--radius-sm);
-      background: rgba(122,155,118,.12); display: flex;
-      align-items: center; justify-content: center; margin-bottom: 18px;
-    }
-    .value-icon svg { width: 22px; height: 22px; stroke: #7A9B76; fill: none; stroke-width: 1.8; }
-    .value-card h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px; }
-    .value-card p  { font-size: .9375rem; color: var(--color-text-muted); line-height: 1.65; }
-
-    /* ── Features ─────────────────────────────────── */
-    .features { padding: 72px 0; background: var(--color-bg-alt); }
-    .features-list { display: flex; flex-direction: column; gap: 80px; }
-    .feature-row {
-      display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center;
-    }
-    .feature-row.reverse .feature-visual { order: 1; }
-    .feature-row.reverse .feature-copy  { order: 2; }
-    .feature-visual {
-      aspect-ratio: 16/10; border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: var(--shadow-layered);
-    }
-    .feature-visual.dark {
-      background: linear-gradient(135deg, #3D3530 0%, #5C4A42 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .feature-visual.light {
-      background: linear-gradient(135deg, #F5E6D8 0%, #E8D4BF 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .mock-transcript {
-      width: 82%; padding: 16px;
-    }
-    .mock-msg {
-      display: flex; gap: 8px; margin-bottom: 8px;
-    }
-    .mock-avatar { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
-    .mock-avatar.terracotta { background: var(--color-accent); }
-    .mock-avatar.sage     { background: #7A9B76; }
-    .mock-bubble.primary {{ background: rgba(194,82,42,.25); }}
-    .mock-bubble.secondary {{ background: rgba(45,41,38,.1); }}
-    .mock-bubble.on-dark {{ background: rgba(255,255,255,.2); }}
-    .mock-sentiment {
-      position: absolute; bottom: 16px; right: 16px;
-      display: flex; gap: 6px;
-    }
-    .sentiment-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .sentiment-dot.green { background: #7A9B76; }
-    .sentiment-dot.amber { background: #E9A857; }
-    .sentiment-dot.red   { background: #C45A5A; }
-
-    .feature-tag {
-      font-size: .6875rem; font-weight: 600; text-transform: uppercase;
-      color: var(--color-accent); letter-spacing: .06em; margin-bottom: 10px;
-    }
-    .feature-copy h3 { font-size: 1.55rem; margin-bottom: 14px; }
-    .feature-copy p  { font-size: 1rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 20px; }
-    .feature-checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .feature-checklist li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: .9375rem; color: var(--color-text-muted);
-    }
-    .feature-checklist svg { flex-shrink: 0; width: 18px; height: 18px; stroke: #7A9B76; fill: none; stroke-width: 2.2; margin-top: 2px; }
-
-    /* ── CTA Section ──────────────────────────────── */
-    .cta-section {
-      padding: 96px 0;
-      background: linear-gradient(135deg, #6B4430 0%, #C2522A 50%, #D4735E 100%);
-      color: #fff; text-align: center; position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      background-size: 200px 200px; opacity: .06;
-    }
-    .cta-section .section-label { color: rgba(255,255,255,.6); }
-    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; position: relative; z-index: 1; }
-    .btn-white { background: #fff; color: var(--color-accent); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
-    .btn-white:hover { background: #FAFAFA; color: var(--color-accent); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,.15); text-decoration: none; }
-    .btn-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1.5px solid rgba(255,255,255,.2); }
-    .btn-ghost:hover { background: rgba(255,255,255,.2); color: #fff; text-decoration: none; }
-
-    /* ── Footer ───────────────────────────────────── */
-    footer {
-      padding: 48px 0; border-top: 1px solid var(--color-border);
-      background: var(--color-bg);
-    }
-    .footer-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 16px;
-    }
-    .footer-copy { font-size: .8125rem; color: var(--color-text-muted); }
-    .footer-links { display: flex; gap: 24px; list-style: none; }
-    .footer-links a { font-size: .8125rem; color: var(--color-text-muted); }
-    .footer-links a:hover { color: var(--color-text); text-decoration: none; }
-
-    /* ── Responsive ───────────────────────────────── */
-    @media (max-width: 768px) {
-      .hero .container { grid-template-columns: 1fr; gap: 36px; }
-      .hero { padding: 56px 0 48px; }
-      .value-grid { grid-template-columns: 1fr; gap: 16px; }
-      .value-grid .value-card:nth-child(1) { grid-column: auto; grid-row: auto; min-height: auto; }
-      .value-grid .value-card:nth-child(3) { grid-column: auto; grid-row: auto; min-height: auto; }
-      .feature-row { grid-template-columns: 1fr !important; gap: 24px; }
-      .feature-row.reverse .feature-visual { order: 0; }
-      .feature-row.reverse .feature-copy  { order: 0; }
-      .nav-links { display: none; }
-      .menu-toggle { display: block; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--color-bg); padding: 20px 24px; gap: 16px;
-        border-bottom: 1px solid var(--color-border);
-      }
-    }
-
-    /* ── Fluid Animations & Interactivity ────────────────── */
-
-    /* ── Keyframes ────────────────────────────────────────── */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSlideLeft {
-      from { opacity: 0; transform: translateX(-36px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fadeSlideRight {
-      from { opacity: 0; transform: translateX(36px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes scaleFadeIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    @keyframes pulseRing {
-      0%   { box-shadow: 0 0 0 0 rgba(194,82,42,.45); }
-      70%  { box-shadow: 0 0 0 12px rgba(194,82,42,0); }
-      100% { box-shadow: 0 0 0 0 rgba(194,82,42,0); }
-    }
-    @keyframes gradientDrift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50%      { transform: translateY(-14px) rotate(3deg); }
-    }
-    @keyframes morphBlob {
-      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-      25%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-      50%      { border-radius: 50% 60% 30% 60% / 30% 50% 70% 50%; }
-      75%      { border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%; }
-    }
-
-    /* ── Default state — elements hidden until revealed ───────── */
-    .anim-hidden {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s cubic-bezier(.22,1,.36,1),
-                  transform 0.7s cubic-bezier(.22,1,.36,1);
-    }
-    .anim-hidden.anim-from-left {
-      opacity: 0;
-      transform: translateX(-36px);
-    }
-    .anim-hidden.anim-from-right {
-      opacity: 0;
-      transform: translateX(36px);
-    }
-    .anim-hidden.anim-scale {
-      opacity: 0;
-      transform: scale(0.96);
-    }
-    .anim-hidden.anim-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── Hero entrance (handled by JS on load, not scroll) ────── */
-    .hero-badge       { transition-delay: 0.08s; }
-    .hero h1          { transition-delay: 0.20s; }
-    .hero p           { transition-delay: 0.34s; }
-    .hero-actions     { transition-delay: 0.46s; }
-    .hero-visual      { transition-delay: 0.28s; }
-
-    /* ── Value card stagger ─────────────────────────────────── */
-    .value-grid .value-card {
-      transition-delay: 0s;
-    }
-    .value-grid .value-card:nth-child(2) {
-      transition-delay: 0.12s;
-    }
-    .value-grid .value-card:nth-child(3) {
-      transition-delay: 0.24s;
-    }
-
-    /* ── Feature row alternation ────────────────────────────── */
-    .feature-copy {
-      transition-delay: 0s;
-    }
-    .feature-visual {
-      transition-delay: 0.14s;
-    }
-
-    /* ── Enhanced hover states ──────────────────────────────── */
-    .btn-primary {
-      transition: background .2s, transform .15s, box-shadow .2s;
-    }
-    .btn-primary:hover {
-      animation: pulseRing 2s ease-in-out infinite;
-      transform: translateY(-2px);
-    }
-    .value-card {
-      transition: box-shadow .25s ease, transform .2s ease;
-    }
-    .value-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,.09), 0 4px 8px rgba(0,0,0,.04);
-      transform: translateY(-4px);
-    }
-    .feature-checklist svg {
-      transition: stroke-dasharray .4s ease, stroke-dashoffset .4s ease;
-    }
-    .btn-outline:hover, .btn-white:hover, .btn-ghost:hover {
-      transform: translateY(-2px);
-    }
-
-    /* ── CTA section gradient animation ─────────────────────── */
-    .cta-section {
-      background-size: 200% 200%;
-      animation: gradientDrift 12s ease infinite;
-    }
-
-    /* ── Decorative organic shapes in hero ─────────────── */
-    .hero-visual { overflow: visible !important; }
-    .hero-visual::before,
-    .hero-visual::after {
-      content: ''; position: absolute; z-index: 0; pointer-events: none;
-    }
-    .hero-visual::before {
-      width: 140px; height: 160px; top: -16px; right: -24px;
-      background: linear-gradient(135deg, rgba(194,82,42,.08), rgba(233,168,87,.12));
-      clip-path: polygon(20% 0%, 80% 5%, 100% 40%, 85% 85%, 40% 95%, 5% 60%);
-      animation: floatOrganic 12s ease-in-out infinite;
-    }
-    .hero-visual::after {
-      width: 100px; height: 100px; bottom: 20px; left: -12px;
-      background: rgba(122,155,118,.10);
-      clip-path: polygon(15% 10%, 75% 0%, 100% 50%, 90% 95%, 30% 100%, 0% 55%);
-      animation: floatOrganicReverse 14s ease-in-out infinite;
-    }
-    @keyframes floatOrganic {
-      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      33% { transform: translate(-8px, 10px) rotate(4deg) scale(1.03); }
-      66% { transform: translate(6px, -6px) rotate(-2deg) scale(.98); }
-    }
-    @keyframes floatOrganicReverse {
-      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      50% { transform: translate(10px, -8px) rotate(-3deg) scale(1.04); }
-    }
-    .hero-visual-inner,
-    .mock-stat-card,
-    .mock-sidebar,
-    .mock-topbar {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ── Nav active state ───────────────────────────────────── */
-    .nav-links a.active {
-      color: var(--color-text) !important;
-      font-weight: 600;
-    }
-    .nav-links a.active::after {
-      content: '';
-      display: block;
-      height: 2px;
-      background: var(--color-accent);
-      margin-top: 4px;
-      border-radius: 1px;
-      transform: scaleX(1);
-      transition: transform .25s ease;
-    }
-
-
-    /* ── Accessibility: reduced motion ────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      .anim-hidden {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ════════ NAV ════════ -->
-  <nav>
-    <div class="container">
-      <a href="#" class="logo">tess<span>avra</span></a>
-      <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <!-- ════════ NAVIGATION ════════ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
       </button>
-      <ul class="nav-links">
-        <li><a href="#value">Why Tessavra</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#cta" class="btn btn-primary nav-cta">Request Demo</a></li>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Conversation Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="#evidence-linking">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="#voc-ux">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="#voc-ux">UX &amp; Research Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/sales-intelligence">Sales Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Quality &amp; Performance</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/scorecards">Scorecards</a></li>
+                  <li class="mega-item"><a class="mega-link" href="#qa-coaching">Coaching</a></li>
+                  <li class="mega-item"><a class="mega-link" href="#calibration">Calibration &amp; Review</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item mega-item--described">
+                    <a class="mega-link" href="#workflow">
+                      Workflow &amp; Pipeline Engine
+                      <span class="mega-item-desc">Build governed workflows that move interaction data from source systems through Tessavra analysis and into business applications.</span>
+                    </a>
+                  </li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/evidence-governance">Evidence &amp; Governance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/policy-guardrails">Policy &amp; Guardrails</a></li>
+                  <li class="mega-item"><a class="mega-link" href="#integrations">Integrations &amp; API</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item mega-item--emphasis"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item mega-item--emphasis"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item mega-item--emphasis"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/sales-teams">Sales Teams</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations/data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+                <div class="mega-flow" aria-hidden="true">
+                  <span>Ingest</span>
+                  <span class="mega-flow-arrow">→</span>
+                  <span>Transcribe</span>
+                  <span class="mega-flow-arrow">→</span>
+                  <span>Analyse</span>
+                  <span class="mega-flow-arrow">→</span>
+                  <span>Review</span>
+                  <span class="mega-flow-arrow">→</span>
+                  <span>Deliver</span>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations/contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations/salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations/alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Developers</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/developers/api">API</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/developers/webhooks">Webhooks</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/developers/mcp-access">MCP Access</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/developers/docs">Developer Documentation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-security" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-security">
+            Security
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-security" aria-hidden="true" aria-labelledby="trigger-security">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="#security">Security Overview</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/security/data-privacy">Data Privacy</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/security/access-controls">Access Controls</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/security/auditability">Auditability</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/security/responsible-ai">Responsible AI</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/security/subprocessors">Subprocessors</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="#evidence-linking">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/resources/guides">Product Guides</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/resources/insights">Insights</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/resources/documentation">Documentation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- ════════ HERO ════════ -->
-  <section class="hero" id="hero" data-animate>
-    <div class="container">
-      <div class="hero-copy">
-        <span class="hero-badge anim-hidden">Conversation Intelligence</span>
-        <h1 class="anim-hidden">Understand every customer conversation.</h1>
-        <p class="anim-hidden">Tessavra turns your support interactions and customer feedback into actionable intelligence&mdash;automated QA, real-time coaching, and voice-of-customer insights, all in one place.</p>
-        <div class="hero-actions anim-hidden">
-          <a href="#cta" class="btn btn-primary">Request a Demo</a>
-          <a href="#features" class="btn btn-outline">See How It Works</a>
-        </div>
-      </div>
-      <div class="hero-visual anim-scale" aria-hidden="true">
-        <div class="mock-sidebar"></div>
-        <div class="mock-topbar"></div>
-        <div class="hero-visual-inner">
-          <div class="mock-chart-bar accent"></div>
-          <div class="mock-chart-bar" style="width:58%"></div>
-          <div class="mock-chart-bar" style="width:85%"></div>
-          <div class="mock-chart-bar" style="width:42%"></div>
-          <div class="mock-chart-bar" style="width:70%"></div>
-        </div>
-        <div class="mock-stat-card">
-          <div class="mock-stat-icon"></div>
-          <div class="mock-stat-lines">
-            <div class="mock-stat-line" style="width:80%"></div>
-            <div class="mock-stat-line" style="width:55%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- ════════ VALUE PROPOSITION ════════ -->
-  <section class="value-prop" id="value" data-animate>
-    <div class="container">
-      <p class="section-label anim-hidden">Why Tessavra</p>
-      <h2 class="section-title anim-hidden">Stop missing what matters in every interaction.</h2>
-      <p class="section-subtitle anim-hidden">Customer conversations are your most underused asset. Tessavra surfaces the insights hiding in transcripts, recordings, and chats&mdash;so you can act on them before it's too late.</p>
-      <div class="value-grid">
-        <div class="value-card anim-hidden">
-          <div class="value-icon">
-            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Conversation intelligence for enterprise support</p>
+          <h1>Every quality finding traces back to the exact moment it happened.</h1>
+          <p class="hero-lede">
+            Tessavra reviews support conversations, scores them against your quality
+            rubric, and links every finding to the transcript line, timestamp, and
+            speaker that produced it — so coaching, audits, and compliance reviews
+            start from evidence, not opinion.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+            <a href="#evidence-linking" class="btn btn-outline">See how evidence linking works</a>
           </div>
-          <h3>Automate Support QA</h3>
-          <p>Score every ticket and call against custom rubrics. Catch compliance gaps, coaching opportunities, and quality drift without manual sampling.</p>
+          <p class="hero-trust">Built for high-volume, regulated support organizations.</p>
         </div>
-        <div class="value-card anim-hidden">
-          <div class="value-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>Coach Agents in Real Time</h3>
-          <p>Surface live suggestions during calls&mdash;next best actions, escalation triggers, script adherence&mdash;so every agent performs at their best, every shift.</p>
-        </div>
-        <div class="value-card anim-hidden">
-          <div class="value-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <h3>Voice of Customer Insights</h3>
-          <p>Detect trending topics, sentiment shifts, and feature requests across every channel. Feed actionable intelligence back to product and design teams.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ════════ FEATURES ════════ -->
-  <section class="features" id="features" data-animate>
-    <div class="container">
-      <p class="section-label anim-hidden">Features</p>
-      <h2 class="section-title anim-hidden">Built for teams that take customer experience seriously.</h2>
-      <p class="section-subtitle anim-hidden">From automated scoring to cross-functional insights, Tessavra integrates into the workflows your team already uses.</p>
-      <div class="features-list">
-
-        <!-- Feature 1 -->
-        <div class="feature-row">
-          <div class="feature-visual light anim-scale" aria-hidden="true">
-            <div class="mock-transcript">
-              <div class="mock-msg"><div class="mock-avatar terracotta"></div><div class="mock-bubble primary" style="width:75%"></div></div>
-              <div class="mock-msg"><div class="mock-avatar sage"></div><div class="mock-bubble secondary" style="width:60%"></div></div>
-              <div class="mock-msg"><div class="mock-avatar terracotta"></div><div class="mock-bubble primary" style="width:85%"></div></div>
-              <div class="mock-msg"><div class="mock-avatar sage"></div><div class="mock-bubble secondary" style="width:50%"></div></div>
-              <div class="mock-sentiment"><div class="sentiment-dot green"></div><div class="sentiment-dot amber"></div><div class="sentiment-dot red"></div></div>
+        <div class="hero-visual">
+          <div class="evidence-panel" role="img" aria-label="Example: an annotated support call transcript showing a highlighted finding, linked to its timestamp and routed to a coaching queue.">
+            <div class="evidence-panel__header">
+              <span class="evidence-panel__id">CALL-40218 · Voice · 04:12</span>
+              <span class="evidence-panel__label">Sample transcript</span>
+            </div>
+            <div class="transcript" aria-hidden="true">
+              <div class="transcript-line">
+                <span class="transcript-speaker">Customer</span>
+                <span class="transcript-bubble">I've already called twice about this billing error and no one's fixed it.</span>
+                <span class="transcript-ts">00:42</span>
+              </div>
+              <div class="transcript-line is-finding">
+                <span class="transcript-speaker">Agent</span>
+                <span class="transcript-bubble">I understand, let me just close this out for you quickly.</span>
+                <span class="transcript-ts">00:58</span>
+              </div>
+              <div class="transcript-line">
+                <span class="transcript-speaker">Customer</span>
+                <span class="transcript-bubble">Can you actually explain what happened first?</span>
+                <span class="transcript-ts">01:10</span>
+              </div>
+            </div>
+            <div class="evidence-annotation" aria-hidden="true">
+              <p class="evidence-annotation__label">Finding · Rubric: De-escalation</p>
+              <p>Missed acknowledgment on repeat-contact case. Cited to 00:58 above.</p>
+            </div>
+            <div class="evidence-panel__footer" aria-hidden="true">
+              <span>Rubric: Support QA v3</span>
+              <span><strong>Routed to:</strong> Coaching queue</span>
             </div>
           </div>
-          <div class="feature-copy anim-from-right">
-            <p class="feature-tag">Analytics Dashboard</p>
-            <h3>Full visibility into conversation quality</h3>
-            <p>Track QA scores, sentiment trends, resolution rates, and agent performance&mdash;at scale. Custom dashboards surface the metrics that matter to each stakeholder.</p>
-            <ul class="feature-checklist">
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Automated quality scoring against configurable rubrics
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Sentiment and topic trend analysis over time
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Agent leaderboard and coaching recommendations
-              </li>
-            </ul>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ THE PROBLEM ════════ -->
+    <section class="section section-alt" id="problem">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">The problem</p>
+          <h2 class="section-title">Quality review rarely keeps pace with conversation volume.</h2>
+          <p class="section-lede">
+            Most support organizations can only sample a fraction of calls and
+            tickets for quality review. Scores get recorded, but the reasoning
+            behind them — the specific words, tone, or moment that triggered a
+            rating — is usually lost by the time anyone needs it again.
+          </p>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="feature-row reverse">
-          <div class="feature-visual dark anim-scale" aria-hidden="true">
-            <div class="mock-transcript">
-              <div class="mock-msg"><div class="mock-avatar terracotta"></div><div class="mock-bubble on-dark" style="width:80%;opacity:.6"></div></div>
-              <div class="mock-msg"><div class="mock-avatar sage"></div><div class="mock-bubble on-dark" style="width:55%;opacity:.4"></div></div>
-              <div class="mock-msg"><div class="mock-avatar terracotta"></div><div class="mock-bubble on-dark" style="width:70%;opacity:.5"></div></div>
-              <div style="margin-top:16px;height:8px;border-radius:4px;background:rgba(255,255,255,.2);width:45%"></div>
-              <div style="height:8px;border-radius:4px;background:rgba(255,255,255,.15);width:65%"></div>
+        <ol class="ledger-list">
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Low review coverage</h3>
+              <p>Manual QA reaches only a small share of conversations, so systemic issues often surface first in complaints or churn — not in the QA queue.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>Scores without evidence</h3>
+              <p>A score on its own means little without the transcript line that produced it, especially when an agent or a customer disputes the result.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Insights stay siloed</h3>
+              <p>Patterns worth sharing with product or UX teams rarely leave the spreadsheet or dashboard where a QA reviewer first captured them.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ HOW IT WORKS: EVIDENCE LINKING ════════ -->
+    <section class="section" id="evidence-linking">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title">Every finding is a citation, not just a score.</h2>
+          <p class="section-lede">
+            Tessavra reads support conversations across voice, chat, and email,
+            and evaluates them against the rubric your quality team already
+            uses. Each finding is linked directly to the transcript excerpt,
+            timestamp, and speaker that produced it.
+          </p>
+        </div>
+
+        <div class="mechanism-grid">
+          <ol class="step-list" data-reveal>
+            <li class="step-item">
+              <span class="step-number">01</span>
+              <div>
+                <h3>Capture</h3>
+                <p>Conversations are ingested from your support systems in their original form.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">02</span>
+              <div>
+                <h3>Evaluate</h3>
+                <p>Rubric criteria are scored using the transcript itself as the only source of truth.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">03</span>
+              <div>
+                <h3>Cite</h3>
+                <p>Each score links to the exact evidence: the line, timestamp, and speaker.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">04</span>
+              <div>
+                <h3>Review</h3>
+                <p>A human reviewer can confirm, adjust, or challenge any finding directly against its citation.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="finding-diagram" data-reveal role="img" aria-label="Diagram of a single quality finding, showing its rubric criterion, cited transcript evidence, timestamp reference, and reviewer decision.">
+            <div class="finding-diagram__row">
+              <span class="finding-diagram__callout">1</span>
+              <span class="finding-diagram__text">Rubric criterion: De-escalation on repeat contact</span>
+            </div>
+            <div class="finding-diagram__row">
+              <span class="finding-diagram__callout">2</span>
+              <span class="finding-diagram__text">Evidence: "I understand, let me just close this out for you quickly."</span>
+              <span class="finding-diagram__meta">CALL-40218 · 00:58</span>
+            </div>
+            <div class="finding-diagram__row">
+              <span class="finding-diagram__callout">3</span>
+              <span class="finding-diagram__text">Reviewer decision: Confirmed — routed to coaching</span>
+              <span class="finding-diagram__meta">J. Okafor</span>
+            </div>
+            <div class="finding-diagram__row">
+              <span class="finding-diagram__callout">4</span>
+              <span class="finding-diagram__text">Audit trail: Finding, citation, and decision retained together</span>
             </div>
           </div>
-          <div class="feature-copy anim-from-left">
-            <p class="feature-tag">Transcription &amp; Search</p>
-            <h3>Every conversation, searchable and analyzable</h3>
-            <p>Powerful transcription across voice, chat, and video. Search by keyword, speaker, intent, or outcome&mdash;then cluster related threads for pattern detection.</p>
-            <ul class="feature-checklist">
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Multi-language transcription with speaker diarization
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Semantic search across all recorded interactions
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Automatic theme clustering and topic tagging
-              </li>
-            </ul>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SUPPORT QA & COACHING ════════ -->
+    <section class="section section-alt" id="qa-coaching">
+      <div class="container feature-row">
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">Support QA &amp; coaching</p>
+          <h2>Coach from the transcript, not the summary.</h2>
+          <p>
+            Run your existing rubric across every conversation instead of a
+            manual sample. Flagged findings route to a review queue where team
+            leads can confirm the evidence, add coaching notes, and close the
+            loop with the agent — without leaving the original transcript.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Custom rubric scoring aligned to your existing QA process</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Automatic routing of flagged conversations to the right reviewer</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Coaching notes attached directly to the evidence that prompted them</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Agent- and team-level trend views over time</li>
+          </ul>
         </div>
 
+        <div class="feature-visual" data-reveal>
+          <div class="queue-panel" role="img" aria-label="Example review queue showing three flagged conversations with their rubric criterion and status.">
+            <div class="queue-row">
+              <span class="queue-ref">CALL-40218</span>
+              <span class="queue-detail">De-escalation on repeat contact<span>Voice · 4m 12s</span></span>
+              <span class="status-badge open">Open</span>
+            </div>
+            <div class="queue-row">
+              <span class="queue-ref">CHAT-19042</span>
+              <span class="queue-detail">Required disclosure missing<span>Chat · 6m 03s</span></span>
+              <span class="status-badge review">In review</span>
+            </div>
+            <div class="queue-row">
+              <span class="queue-ref">CALL-40201</span>
+              <span class="queue-detail">Strong recovery after escalation<span>Voice · 3m 47s</span></span>
+              <span class="status-badge confirmed">Coaching sent</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ════════ CTA ════════ -->
-  <section class="cta-section" id="cta" data-animate>
-    <div class="container">
-      <p class="section-label anim-hidden">Get Started</p>
-      <h2 class="section-title anim-hidden">Ready to make every customer conversation count?</h2>
-      <p class="section-subtitle anim-hidden">See Tessavra in action. Request a personalised demo and discover how conversation intelligence transforms support, coaching, and product decisions.</p>
-      <div class="cta-actions anim-scale">
-        <a href="mailto:hello@tessavra.com?subject=Demo%20Request" class="btn btn-white">Request a Demo</a>
-        <a href="mailto:hello@tessavra.com" class="btn btn-ghost">Contact Sales</a>
+    <!-- ════════ VOICE OF CUSTOMER & UX ════════ -->
+    <section class="section" id="voc-ux">
+      <div class="container feature-row reverse">
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">Voice of customer &amp; UX research</p>
+          <h2>Turn conversations into product signal.</h2>
+          <p>
+            The conversations your support team handles every day contain a
+            steady record of what's confusing, missing, or broken in your
+            product. Tessavra groups recurring themes across calls, chats, and
+            tickets so product and UX teams can see what's driving contact
+            volume — and read the original conversations behind each theme.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Recurring themes surfaced across every conversation channel</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Each theme links back to the conversations that support it</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Shareable with product and UX teams outside the QA function</li>
+          </ul>
+        </div>
+
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example list of recurring customer conversation themes with mention counts and trend direction.">
+            <div class="theme-row">
+              <span class="theme-name">Checkout error messaging</span>
+              <span class="theme-count">142 mentions</span>
+              <span class="theme-trend up">↑ trending</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Refund policy clarity</span>
+              <span class="theme-count">98 mentions</span>
+              <span class="theme-trend flat">steady</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Mobile app login</span>
+              <span class="theme-count">61 mentions</span>
+              <span class="theme-trend up">↑ trending</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative data for demonstration purposes.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ════════ CALIBRATION & GOVERNANCE ════════ -->
+    <section class="section section-alt" id="calibration">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">Calibration &amp; governance</p>
+          <h2 class="section-title">Keep automated scoring accountable to human judgment.</h2>
+          <p class="section-lede">
+            Automated evaluation is only trustworthy if it's regularly checked
+            against how your own reviewers would score the same conversation.
+            Tessavra supports structured calibration sessions where reviewers
+            score a shared sample, compare results, and adjust rubric
+            interpretation together — with a recorded history of every
+            calibration decision.
+          </p>
+        </div>
+
+        <div class="calibration-panel" data-reveal role="img" aria-label="Example calibration log with dates, reviewers, sample size, and outcome notes.">
+          <div class="calibration-row">
+            <div class="calibration-row__meta">
+              <span>12 Feb</span><span>Reviewer: J. Okafor</span><span>Sample: 8 conversations</span>
+            </div>
+            <p class="calibration-row__outcome">Outcome: rubric criterion on repeat-contact handling clarified after disagreement on two calls.</p>
+          </div>
+          <div class="calibration-row">
+            <div class="calibration-row__meta">
+              <span>29 Jan</span><span>Reviewer: M. Alvarez</span><span>Sample: 6 conversations</span>
+            </div>
+            <p class="calibration-row__outcome">Outcome: model and reviewer scores aligned on all sampled conversations; no rubric change required.</p>
+          </div>
+        </div>
+        <p class="data-caption">Illustrative example for demonstration purposes.</p>
+      </div>
+    </section>
+
+    <!-- ════════ PRODUCT WORKFLOW ════════ -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">Workflow</p>
+          <h2 class="section-title">From conversation to action, in one continuous record.</h2>
+        </div>
+
+        <div class="stepper" data-reveal>
+          <div class="stepper-item" data-step="1">
+            <h3>Capture</h3>
+            <p>Conversations ingest automatically from your existing voice, chat, and email channels.</p>
+          </div>
+          <div class="stepper-item" data-step="2">
+            <h3>Evaluate</h3>
+            <p>Rubric scoring and evidence citation happen without manual sampling.</p>
+          </div>
+          <div class="stepper-item" data-step="3">
+            <h3>Review</h3>
+            <p>Flagged findings route to the right reviewer with full context already attached.</p>
+          </div>
+          <div class="stepper-item" data-step="4">
+            <h3>Act</h3>
+            <p>Coaching, compliance follow-up, or product feedback moves forward from a single, cited record.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ INTEGRATIONS ════════ -->
+    <section class="section section-alt" id="integrations">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">Integrations</p>
+          <h2 class="section-title">Fits into the support stack you already run.</h2>
+          <p class="section-lede">
+            Tessavra is built to sit alongside your existing contact center,
+            ticketing, and chat systems rather than replace them. Conversations
+            are ingested from the channels you already use, and findings can be
+            routed back into the tools your team works in every day.
+          </p>
+        </div>
+        <div
+          class="integrations-radial"
+          data-reveal
+          role="img"
+          aria-label="Diagram showing Tessavra at the center, connected to six categories of existing support systems: voice and contact center, helpdesk and ticketing, live chat and messaging, data warehouse and BI, CRM and customer records, and single sign-on."
+        >
+          <svg class="radial-connector" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="50" y1="50" x2="50" y2="4"/>
+            <line x1="50" y1="50" x2="92" y2="25"/>
+            <line x1="50" y1="50" x2="92" y2="75"/>
+            <line x1="50" y1="50" x2="50" y2="96"/>
+            <line x1="50" y1="50" x2="8" y2="75"/>
+            <line x1="50" y1="50" x2="8" y2="25"/>
+          </svg>
+          <div class="radial-hub" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2.75"/>
+              <circle cx="12" cy="3" r="1.4"/>
+              <circle cx="20" cy="8" r="1.4"/>
+              <circle cx="20" cy="16" r="1.4"/>
+              <circle cx="12" cy="21" r="1.4"/>
+              <circle cx="4" cy="16" r="1.4"/>
+              <circle cx="4" cy="8" r="1.4"/>
+              <line x1="12" y1="9.25" x2="12" y2="4.4"/>
+              <line x1="14.4" y1="10.5" x2="18.6" y2="8.3"/>
+              <line x1="14.4" y1="13.5" x2="18.6" y2="15.7"/>
+              <line x1="12" y1="14.75" x2="12" y2="19.6"/>
+              <line x1="9.6" y1="13.5" x2="5.4" y2="15.7"/>
+              <line x1="9.6" y1="10.5" x2="5.4" y2="8.3"/>
+            </svg>
+          </div>
+          <span class="radial-tile radial-tile--1">Voice &amp; contact center</span>
+          <span class="radial-tile radial-tile--2">Helpdesk &amp; ticketing</span>
+          <span class="radial-tile radial-tile--3">Live chat &amp; messaging</span>
+          <span class="radial-tile radial-tile--4">Data warehouse &amp; BI</span>
+          <span class="radial-tile radial-tile--5">CRM &amp; customer records</span>
+          <span class="radial-tile radial-tile--6">Single sign-on (SSO)</span>
+        </div>
+        <p class="fine-print">Specific integrations available on request.</p>
+      </div>
+    </section>
+
+    <!-- ════════ SECURITY & DATA CONTROL ════════ -->
+    <section class="section" id="security">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">Security &amp; data control</p>
+          <h2 class="section-title">Your conversation data stays under your control.</h2>
+          <p class="section-lede">
+            Support conversations often contain sensitive customer information.
+            Tessavra is designed around that reality from the ground up.
+          </p>
+        </div>
+
+        <div class="security-list" data-reveal>
+          <div class="security-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <div>
+              <strong>Role-based access</strong>
+              <p>Access to transcripts, findings, and calibration history is governed by role-based permissions.</p>
+            </div>
+          </div>
+          <div class="security-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            <div>
+              <strong>Audit logging</strong>
+              <p>Every view or edit of a finding is recorded in an audit log tied to the reviewer who made it.</p>
+            </div>
+          </div>
+          <div class="security-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            <div>
+              <strong>Configurable retention</strong>
+              <p>Data retention and deletion schedules follow the policy your organization sets, not a fixed default.</p>
+            </div>
+          </div>
+          <div class="security-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+            <div>
+              <strong>Data processing terms</strong>
+              <p>Data processing terms are available for review before any evaluation of your conversations begins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ════════ FOOTER ════════ -->
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-inner">
-        <p class="footer-copy">&copy; 2026 Tessavra. All rights reserved.</p>
-        <ul class="footer-links">
-          <li><a href="mailto:hello@tessavra.com">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Tessavra on X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+            </a>
+            <a href="#" aria-label="Tessavra on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3.5" y="9" width="3.6" height="10.5"/><circle cx="5.3" cy="5.2" r="2"/><path d="M11 9h3.6v1.9c.8-1.3 2.2-2.2 3.9-2.2 2.9 0 4.5 1.9 4.5 5.2v5.6h-3.6v-5c0-1.4-.5-2.4-1.8-2.4-1 0-1.6.7-1.9 1.4-.1.3-.1.6-.1 1v5h-3.6z"/></svg>
+            </a>
+            <a href="#" aria-label="Tessavra on YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="3.5" fill="currentColor"/><path d="M10.2 9.7l5.2 2.3-5.2 2.3z" fill="#0F1F3D"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="#evidence-linking">How it works</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/resources/guides">Product guides</a></li>
+            <li><a href="/resources/insights">Insights</a></li>
+            <li><a href="/resources/documentation">Documentation</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Simple mobile nav toggle
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.menu-toggle') && !e.target.closest('.nav-links')) {
-        document.querySelector('.nav-links').classList.remove('open');
-      }
-    });
-  </script>
-
-  <script>
-    // Fluid animations — IntersectionObserver reveals + scroll spy
-    (() => {
-      function animateHeroEntrance() {
-        const targets = document.querySelectorAll('[data-animate].hero .anim-hidden');
-        targets.forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-        });
-        const visual = document.querySelector('.hero-visual');
-        if (visual) {
-          visual.style.opacity = '0';
-          visual.style.transform = 'scale(0.96)';
-        }
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            targets.forEach((el, i) => {
-              const delay = 80 + i * 140;
-              setTimeout(() => {
-                el.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
-                el.style.opacity = '1';
-                el.style.transform = 'none';
-              }, delay);
-            });
-            if (visual) {
-              setTimeout(() => {
-                visual.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
-                visual.style.opacity = '1';
-                visual.style.transform = 'none';
-              }, 280);
-            }
-          });
-        });
-      }
-
-      function initReveals() {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('anim-visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
-        );
-        document.querySelectorAll('.anim-hidden:not(.hero .anim-hidden)').forEach(el => {
-          observer.observe(el);
-        });
-      }
-
-      function initScrollSpy() {
-        const sections = document.querySelectorAll('section[id]');
-        const links = document.querySelectorAll('.nav-links a[href^="#"]');
-        if (!sections.length || !links.length) return;
-        const spy = new IntersectionObserver(
-          (entries) => {
-            let closest = null;
-            let closestDist = Infinity;
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const rect = entry.target.getBoundingClientRect();
-                const score = rect.top >= 0 ? Math.abs(rect.top) : Infinity;
-                if (score < closestDist) {
-                  closestDist = score;
-                  closest = entry.target;
-                }
-              }
-            });
-            links.forEach(link => link.classList.remove('active'));
-            if (closest) {
-              const matchingLink = document.querySelector(
-                '.nav-links a[href="' + '#' + closest.id + '"]'
-              );
-              matchingLink && matchingLink.classList.add('active');
-            }
-          },
-          { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
-        );
-        sections.forEach(s => spy.observe(s));
-      }
-
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', (e) => {
-          const id = a.getAttribute('href');
-          if (id === '#') return;
-          const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-            const offset = 72;
-            const y = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-          }
-        });
-      });
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          animateHeroEntrance();
-          initReveals();
-          initScrollSpy();
-        });
-      } else {
-        animateHeroEntrance();
-        initReveals();
-        initScrollSpy();
-      }
-    })();
-  </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>

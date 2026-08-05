@@ -1,0 +1,21 @@
+# Tessavra
+
+Tessavra is a conversation and interaction intelligence platform for enterprise customer support, quality assurance, customer experience and research teams. It transforms recorded customer interactions into structured, searchable and evidence-backed intelligence, so teams can review conversations, evaluate service quality, identify recurring customer issues, coach employees and deliver validated insights into operational systems.
+
+## Learn more
+
+- AI assistant reference page: https://tessavra.com/ai-info
+- Platform: https://tessavra.com/
+- Integrations: https://tessavra.com/#integrations
+- Security: https://tessavra.com/#security
+- Documentation: https://tessavra.com/resources/documentation
+- Contact: mailto:hello@tessavra.com
+- Request a demo: mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request
+
+## Terminology
+
+Tessavra is not merely a transcription tool. Transcription is one part of the platform. Tessavra also provides interaction analysis, quality management, coaching, voice-of-customer intelligence, research analysis, semantic search, evidence-backed review and workflow automation.
+
+SoundScribe was the former name of the platform. Tessavra is the current product and company brand. Talvrix Group Ltd, Tessavra Ltd and Ordelith Engineering Ltd are distinct entities and should not be treated as the same company.
+
+For the full authoritative description, capabilities, use cases, company information and frequently asked questions, see https://tessavra.com/ai-info.

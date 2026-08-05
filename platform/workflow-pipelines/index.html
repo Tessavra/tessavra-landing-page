@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow &amp; Pipeline Engine — Tessavra</title>
+  <meta name="description" content="Build governed workflows that move interaction data from source systems through Tessavra analysis into business applications. Automate capture, deliver.">
+  <link rel="canonical" href="https://tessavra.com/platform/workflow-pipelines">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Workflow &amp; Pipeline Engine — Tessavra">
+  <meta property="og:description" content="Build governed workflows that move interaction data from source systems through Tessavra analysis into business applications. Automate capture, deliver.">
+  <meta property="og:url" content="https://tessavra.com/platform/workflow-pipelines">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Workflow & Pipeline Engine — Tessavra",
+    "url": "https://tessavra.com/platform/workflow-pipelines",
+    "description": "Build governed workflows that move interaction data from source systems through Tessavra analysis into business applications. Automate capture, deliver."
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Platform", "item": "https://tessavra.com/platform"},
+      {"@type": "ListItem", "position": 2, "name": "Workflow & Pipeline Engine", "item": "https://tessavra.com/platform/workflow-pipelines"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Workflow and pipeline engine for automating conversation intelligence workflows with governed data flows and audit trails.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ════════ NAVIGATION ════════ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="main">
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Workflow &amp; Pipeline Engine</p>
+          <h1>Automate conversation intelligence workflows — with visibility and control</h1>
+          <p class="hero-lede">
+            Tessavra's workflow engine moves interaction data from contact centers, CRM systems and meeting platforms through analysis and into business applications — with configured pipelines, approval gates and audit trails at every stage.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+            <a href="#workflow-overview" class="btn btn-outline">See workflows in action</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ THE WORKFLOW CHALLENGE ════════ -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">The workflow challenge</h2>
+        </div>
+
+        <ol class="ledger-list">
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Manual data movement</h3>
+              <p>Interaction data lives in contact centers, CRM systems and meeting platforms. Analysis results need to reach support teams, data warehouses, operational systems — but moving that data manually is time-consuming and error-prone.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>Disconnected systems</h3>
+              <p>Quality findings, customer signals and conversation intelligence sit in one tool. Sales, support and analytics teams work in different systems. Without integration, insights don't reach the teams who need them.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Governance and visibility gaps</h3>
+              <p>Automated data pipelines without visibility or control become black boxes. Teams need to see what data is moving, where it's going, who approved it, and when pipelines fail.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ HOW TESSAVRA WORKFLOW ENGINE SOLVES IT ════════ -->
+    <section class="section section-alt" id="solution">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">How Tessavra's workflow engine solves it</h2>
+        </div>
+
+        <ol class="step-list" data-reveal>
+          <li class="step-item">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Configure governed pipelines</h3>
+              <p>Build workflows that capture interaction data from source systems, route it through Tessavra analysis (quality evaluation, theme surfacing, signal detection), and deliver structured outputs to business applications — with configured rules, approval gates and error handling.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Maintain visibility and control</h3>
+              <p>Track pipeline runs, view data flow logs, monitor success/failure rates. Operations teams see what data is moving, where it's going, and when pipelines require attention.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Deliver intelligence to business applications</h3>
+              <p>Push Tessavra analysis results into Salesforce, support platforms, data warehouses, operational dashboards — so teams act on conversation intelligence in the tools they already use.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ WORKFLOW OVERVIEW ════════ -->
+    <section class="section" id="workflow-overview">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Capture → Evaluate → Review → Act</h2>
+        </div>
+
+        <div class="stepper" data-reveal>
+          <div class="stepper-item" data-step="1">
+            <h3>Capture</h3>
+            <p>Ingest interaction data from contact center platforms, CRM systems, meeting tools, chat platforms or uploaded files.</p>
+          </div>
+          <div class="stepper-item" data-step="2">
+            <h3>Evaluate</h3>
+            <p>Route interactions through Tessavra analysis — quality scorecards, theme surfacing, customer signal detection, policy checks.</p>
+          </div>
+          <div class="stepper-item" data-step="3">
+            <h3>Review</h3>
+            <p>Manager review queues for flagged findings, approval gates for high-stakes results, calibration workflows for scoring consistency.</p>
+          </div>
+          <div class="stepper-item" data-step="4">
+            <h3>Act</h3>
+            <p>Deliver Tessavra results into business applications — Salesforce records, support tickets, data warehouse tables, operational dashboards, alert systems.</p>
+          </div>
+        </div>
+
+        <ol class="ledger-list" style="margin-top: var(--space-7);" data-reveal>
+          <li class="ledger-item">
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Capture — details &amp; governance</h3>
+              <p><strong>Details:</strong> Scheduled pipelines, event-driven triggers, API ingestion, webhook receivers.</p>
+              <p><strong>Governance:</strong> Retention rules, data classification, access controls applied at ingestion.</p>
+            </div>
+          </li>
+          <li class="ledger-item">
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>Evaluate — details &amp; governance</h3>
+              <p><strong>Details:</strong> Configurable analysis rules, scorecard assignment, evidence linking, enrichment with metadata.</p>
+              <p><strong>Governance:</strong> Analysis audit logs, evidence traceability, model behavior records.</p>
+            </div>
+          </li>
+          <li class="ledger-item">
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Review — details &amp; governance</h3>
+              <p><strong>Details:</strong> Review queues, approval workflows, manager override, evidence-backed decisions.</p>
+              <p><strong>Governance:</strong> Who reviewed what, when, and what decisions were made — logged for audit.</p>
+            </div>
+          </li>
+          <li class="ledger-item">
+            <span class="ledger-index">04</span>
+            <div>
+              <h3>Act — details &amp; governance</h3>
+              <p><strong>Details:</strong> API delivery, webhook dispatch, scheduled exports, real-time notifications.</p>
+              <p><strong>Governance:</strong> Delivery logs, success/failure tracking, retry handling, data lineage.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ PIPELINE TYPES ════════ -->
+    <section class="section section-alt" id="pipeline-types">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Pipeline types</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Quality Management Pipelines</h3>
+            <p><strong>Flow:</strong> Contact center → Tessavra quality evaluation → manager review queue → agent coaching delivery</p>
+            <p><strong>Outcome:</strong> Automated quality coverage with human-in-the-loop review</p>
+          </div>
+          <div class="info-card">
+            <h3>Voice-of-Customer Pipelines</h3>
+            <p><strong>Flow:</strong> Support interactions → theme surfacing → CX team review → product/ops routing</p>
+            <p><strong>Outcome:</strong> Customer signals delivered to the teams who can act on them</p>
+          </div>
+          <div class="info-card">
+            <h3>Salesforce Enrichment Pipelines</h3>
+            <p><strong>Flow:</strong> Salesforce interactions → Tessavra analysis → enriched Salesforce records (transcripts, summaries, quality scores, customer signals)</p>
+            <p><strong>Outcome:</strong> Conversation intelligence visible in Salesforce workflows</p>
+          </div>
+          <div class="info-card">
+            <h3>Research Analysis Pipelines</h3>
+            <p><strong>Flow:</strong> Recorded research sessions → transcription + theme analysis → research project delivery</p>
+            <p><strong>Outcome:</strong> Automated research session processing with evidence-linked findings</p>
+          </div>
+          <div class="info-card">
+            <h3>Data Warehouse Pipelines</h3>
+            <p><strong>Flow:</strong> Interaction capture → analysis → structured output delivery to data warehouse</p>
+            <p><strong>Outcome:</strong> Conversation intelligence available for BI, analytics, reporting</p>
+          </div>
+          <div class="info-card">
+            <h3>Operational Alert Pipelines</h3>
+            <p><strong>Flow:</strong> Interaction analysis → flagged issues (churn risk, policy breach, escalation) → alert delivery to ops teams</p>
+            <p><strong>Outcome:</strong> Real-time notifications when critical issues surface</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ GOVERNANCE & VISIBILITY ════════ -->
+    <section class="section" id="governance">
+      <div class="container feature-row">
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example pipeline run log showing pipeline names, run status, approval gates and delivery outcomes.">
+            <div class="theme-row">
+              <span class="theme-name">QA pipeline — daily</span>
+              <span class="theme-count">run #214</span>
+              <span class="theme-trend up">delivered</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">VoC routing — event</span>
+              <span class="theme-count">run #89</span>
+              <span class="theme-trend flat">approved</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Warehouse export — weekly</span>
+              <span class="theme-count">run #17</span>
+              <span class="theme-trend up">retrying</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+        <div class="feature-copy" data-reveal>
+          <h2>Governed workflows, not black boxes</h2>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pipeline run logs — track every pipeline execution: what data was captured, what analysis ran, what outputs were delivered, when pipelines failed</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Approval gates — configure manager review and approval requirements for high-stakes workflows (e.g., customer-facing communications, compliance-sensitive outputs)</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Evidence traceability — every delivered finding includes links back to the source interaction and the analysis that produced it, with no unsupported claims</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Error handling &amp; retry — pipelines handle transient failures gracefully, retry delivery on error, and alert operations teams when manual intervention is required</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Access controls — configure who can create, modify, run or approve pipelines, with role-based permissions and audit logs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ INTEGRATIONS & DELIVERY TARGETS ════════ -->
+    <section class="section section-alt" id="integrations">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Deliver intelligence where your teams work</h2>
+        </div>
+
+        <ul class="checklist" data-reveal>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Salesforce</strong>&nbsp;— Enrich records with transcripts, quality scores, customer signals</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Support platforms</strong>&nbsp;— Update tickets, trigger workflows, deliver coaching feedback</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Data warehouses</strong>&nbsp;— Load structured interaction data, analysis results, evidence links</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>CRM systems</strong>&nbsp;— Push conversation intelligence into customer records</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>BI &amp; analytics tools</strong>&nbsp;— Make Tessavra data available for dashboards, reporting</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Operational dashboards</strong>&nbsp;— Display real-time quality metrics, VoC themes, alert queues</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Webhook endpoints</strong>&nbsp;— Deliver results to custom applications via HTTP webhooks</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Email &amp; Slack</strong>&nbsp;— Send notifications, summaries, alerts to teams</li>
+        </ul>
+
+        <p class="data-caption" data-reveal>Specific integrations available on request.</p>
+        <p data-reveal>Learn more: <a href="/integrations">Integrations</a> · <a href="/integrations/salesforce">Salesforce</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ KEY CAPABILITIES ════════ -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Key capabilities</h2>
+        </div>
+
+        <ul class="checklist" data-reveal>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Productised pipelines</strong>&nbsp;— Pre-configured workflows for common use cases (QA, VoC, Salesforce enrichment)</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Custom pipeline builder</strong>&nbsp;— Configure pipelines for your specific workflows and systems</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Scheduled &amp; event-driven</strong>&nbsp;— Run pipelines on schedule, triggered by events, or on demand</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Approval gates</strong>&nbsp;— Require manager review before delivering high-stakes outputs</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Audit trails</strong>&nbsp;— Track pipeline runs, data flows, approvals, delivery success/failure</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Error handling &amp; retry</strong>&nbsp;— Graceful failure handling with retry logic and ops alerts</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Access controls</strong>&nbsp;— Role-based permissions for pipeline creation, modification, execution</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence traceability</strong>&nbsp;— Every delivered finding links back to source interaction and analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════════ WHO USES WORKFLOWS ════════ -->
+    <section class="section section-alt" id="audience">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Who uses workflows</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Operations Teams</h3>
+            <p>Configure pipelines, monitor pipeline runs, troubleshoot failures, maintain integration health.</p>
+          </div>
+          <div class="info-card">
+            <h3>QA &amp; Support Leaders</h3>
+            <p>Build quality management workflows, review flagged findings, deliver coaching feedback at scale.</p>
+          </div>
+          <div class="info-card">
+            <h3>Data Teams</h3>
+            <p>Deliver conversation intelligence to data warehouses, BI tools, analytics platforms.</p>
+          </div>
+          <div class="info-card">
+            <h3>Integration Leads</h3>
+            <p>Connect Tessavra to Salesforce, support platforms, CRM systems, operational tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ FINAL CTA ════════ -->
+    <section class="section" id="final-cta" style="background: var(--color-ink); color: var(--color-on-dark);">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <h2 class="section-title" style="color: var(--color-on-dark);">See governed workflows in action</h2>
+          <p class="section-lede" style="color: var(--color-on-dark-muted);">
+            Request a demo to see how Tessavra automates conversation intelligence workflows with visibility, control and audit trails.
+          </p>
+        </div>
+        <div class="hero-actions" data-reveal style="justify-content: center;">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="/integrations" class="btn btn-outline" style="color: var(--color-on-dark); border-color: var(--color-on-dark-muted);">Explore integrations</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

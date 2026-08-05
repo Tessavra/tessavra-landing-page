@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidence &amp; Governance — Tessavra</title>
+  <meta name="description" content="Audit trails, evidence traceability, review workflows, manager approval gates. Built for regulated environments where quality decisions must be auditable.">
+  <link rel="canonical" href="https://tessavra.com/platform/governance">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Evidence &amp; Governance — Tessavra">
+  <meta property="og:description" content="Audit trails, evidence traceability, review workflows, manager approval gates. Built for regulated environments where quality decisions must be auditable.">
+  <meta property="og:url" content="https://tessavra.com/platform/governance">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Evidence & Governance — Tessavra",
+    "url": "https://tessavra.com/platform/governance",
+    "description": "Audit trails, evidence traceability, review workflows, manager approval gates. Built for regulated environments where quality decisions must be auditable."
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Platform", "item": "https://tessavra.com/platform"},
+      {"@type": "ListItem", "position": 2, "name": "Evidence & Governance", "item": "https://tessavra.com/platform/governance"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Evidence-linked governance for conversation intelligence with audit trails, manager approval workflows and policy guardrails.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ════════ NAVIGATION ════════ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="main">
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Evidence &amp; Governance</p>
+          <h1>Evidence-backed decisions, audit-ready workflows</h1>
+          <p class="hero-lede">
+            Tessavra links every quality finding, customer signal and AI-generated result to the underlying conversation evidence — and logs every review, approval and override — so your quality decisions are reviewable, auditable and defensible.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+            <a href="#governance-workflow" class="btn btn-outline">See governance in action</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ THE GOVERNANCE CHALLENGE ════════ -->
+    <section class="section" id="problem">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">The governance challenge</h2>
+        </div>
+
+        <ol class="ledger-list">
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Black-box scores without evidence</h3>
+              <p>Automated quality tools produce scores and findings, but don't show <em>why</em> — making it impossible for managers to verify results or for auditors to trace decisions back to source interactions.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>No audit trail for decisions</h3>
+              <p>When a manager overrides a quality score, approves a coaching action or disputes a finding, that decision often lives in email or untracked conversations — not in a system audit log.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Ungoverned AI outputs</h3>
+              <p>AI-generated summaries, sentiment scores and theme labels lack traceability to the underlying conversation — creating compliance risk when those outputs inform customer-facing decisions or regulatory reporting.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ HOW TESSAVRA PROVIDES GOVERNANCE ════════ -->
+    <section class="section section-alt" id="solution">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">How Tessavra provides governance</h2>
+        </div>
+
+        <ol class="step-list" data-reveal>
+          <li class="step-item">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Link every result to conversation evidence</h3>
+              <p>Every quality finding, customer signal, theme and AI-generated output includes a direct link to the specific transcript line, timestamp or conversational turn that produced it — so managers and auditors can verify results against the source interaction.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Log every review and decision</h3>
+              <p>Manager reviews, approvals, overrides, coaching actions and calibration outcomes are logged with timestamps, user IDs and decision rationale — creating an audit trail for compliance, quality tracking and operational review.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Configure approval gates and policy guardrails</h3>
+              <p>Require manager approval before delivering high-stakes outputs (customer communications, escalations, coaching actions). Configure policy rules that flag interactions for review (prohibited language, script deviations, compliance triggers).</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ GOVERNANCE WORKFLOW ════════ -->
+    <div id="evidence-governance"></div>
+    <section class="section" id="governance-workflow">
+      <div class="container feature-row">
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example governance review queue showing flagged findings with reviewer, decision status and evidence links.">
+            <div class="theme-row">
+              <span class="theme-name">Score override — call #2214</span>
+              <span class="theme-count">R. Mercer</span>
+              <span class="theme-trend up">approved</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Policy flag — turn 14, 08:42</span>
+              <span class="theme-count">evidence linked</span>
+              <span class="theme-trend flat">escalated</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Coaching action — QA scorecard</span>
+              <span class="theme-count">2 findings</span>
+              <span class="theme-trend up">logged</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+        <div class="feature-copy" data-reveal>
+          <h2>Review, approve, audit — with full evidence context</h2>
+          <ol class="step-list">
+            <li class="step-item">
+              <span class="step-number">01</span>
+              <div>
+                <h3>Flag for review</h3>
+                <p>Tessavra evaluates interactions and surfaces findings that require manager review (low scores, policy breaches, high-stakes signals).</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">02</span>
+              <div>
+                <h3>Review with evidence</h3>
+                <p>Managers click through to see the full transcript, verify the finding against conversation context, and decide whether to confirm, override or escalate.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">03</span>
+              <div>
+                <h3>Approve or override</h3>
+                <p>Managers confirm findings, override incorrect results (with rationale), or escalate for additional review. Every decision is logged.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <span class="step-number">04</span>
+              <div>
+                <h3>Audit trail</h3>
+                <p>All reviews, approvals, overrides and outcomes are tracked — who reviewed what, when, and what decisions were made — for compliance audits, performance tracking and operational review.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ EVIDENCE TRACEABILITY ════════ -->
+    <section class="section section-alt" id="evidence-traceability">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Every finding links to the evidence</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>No black-box outputs</h3>
+            <p>Every quality score, customer signal, theme label and AI-generated summary includes a direct link to the transcript evidence that produced it.</p>
+          </div>
+          <div class="info-card">
+            <h3>Human verification</h3>
+            <p>Managers click through to see the full conversation context, verify the finding, and decide whether the result is accurate.</p>
+          </div>
+          <div class="info-card">
+            <h3>Compliance-ready</h3>
+            <p>When auditors ask &ldquo;how did you reach this quality decision?&rdquo; or &ldquo;what evidence supports this customer claim?&rdquo;, you can trace the decision back to the exact conversation moment.</p>
+          </div>
+          <div class="info-card">
+            <h3>Evidence preservation</h3>
+            <p>Source transcripts, findings and decision logs are retained according to your configured retention policies — with audit trails for who accessed what, when.</p>
+          </div>
+        </div>
+
+        <p class="section-lede" style="margin-top: var(--space-6);" data-reveal>
+          <strong>Outcome:</strong> Reviewable, auditable intelligence — essential for regulated support environments, compliance reporting and evidence-backed coaching.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════ AUDIT LOGS & COMPLIANCE REPORTING ════════ -->
+    <section class="section" id="audit-logs">
+      <div class="container feature-row reverse">
+        <div class="feature-copy" data-reveal>
+          <h2>Who reviewed what, when, and why</h2>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Decision logs</strong>&nbsp;— Track every manager review, approval, override, coaching action and calibration outcome — with timestamps, user IDs and decision rationale.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Access logs</strong>&nbsp;— Track who accessed which interactions, when, and what actions they took — for compliance audits and internal security review.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Pipeline run logs</strong>&nbsp;— Track workflow executions, data flows, delivery success/failure — so operations teams see what data moved where, and auditors can verify compliance with data handling policies.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Retention compliance</strong>&nbsp;— Configure retention policies that automatically archive or delete interactions and findings according to your regulatory requirements — with audit trails for retention actions.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Export for compliance</strong>&nbsp;— Export audit logs, decision records and evidence chains for compliance reporting, regulatory audits or internal quality reviews.</li>
+          </ul>
+        </div>
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example audit log showing decision records, access events and retention actions with timestamps and actors.">
+            <div class="theme-row">
+              <span class="theme-name">2026-07-21 09:14 — override</span>
+              <span class="theme-count">R. Mercer</span>
+              <span class="theme-trend up">rationale logged</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">2026-07-21 09:02 — access</span>
+              <span class="theme-count">compliance export</span>
+              <span class="theme-trend flat">12 interactions</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">2026-07-20 17:45 — retention</span>
+              <span class="theme-count">90-day policy</span>
+              <span class="theme-trend up">archived</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ POLICY GUARDRAILS ════════ -->
+    <section class="section section-alt" id="policy-guardrails">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Configure rules, flag issues, require approval</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Policy rule configuration</h3>
+            <p>Define rules that flag interactions for review — prohibited language, script deviations, compliance triggers, escalation patterns, churn risk indicators.</p>
+          </div>
+          <div class="info-card">
+            <h3>Automatic flagging</h3>
+            <p>Tessavra surfaces interactions that violate configured policies, with evidence links to the specific conversational turns where the issue occurred.</p>
+          </div>
+          <div class="info-card">
+            <h3>Approval gates</h3>
+            <p>Require manager approval before delivering high-stakes outputs (customer communications, agent performance reports, regulatory reporting data).</p>
+          </div>
+          <div class="info-card">
+            <h3>Override tracking</h3>
+            <p>When managers override a policy flag or approve a borderline result, the override reason and approver are logged for audit.</p>
+          </div>
+        </div>
+
+        <p class="section-lede" style="margin-top: var(--space-6);" data-reveal>
+          <strong>Outcome:</strong> Configurable governance that reflects your organization's policies — not a one-size-fits-all compliance template.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════ KEY CAPABILITIES ════════ -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Key capabilities</h2>
+        </div>
+
+        <ul class="checklist" data-reveal>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence linking</strong>&nbsp;— Every finding links to transcript evidence for manager verification</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Manager approval workflows</strong>&nbsp;— Require human review before delivering high-stakes outputs</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Audit trails</strong>&nbsp;— Log every review, approval, override, access, pipeline run</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Policy guardrails</strong>&nbsp;— Configure rules that flag interactions for compliance review</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Retention compliance</strong>&nbsp;— Automate retention policies, track retention actions</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Access controls</strong>&nbsp;— Role-based permissions for who can review, approve, access interactions</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Compliance reporting</strong>&nbsp;— Export audit logs, decision records, evidence chains</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence preservation</strong>&nbsp;— Retain source transcripts, findings, decision logs per policy</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════════ WHO USES GOVERNANCE CAPABILITIES ════════ -->
+    <section class="section section-alt" id="audience">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Who uses governance capabilities</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>QA &amp; Support Leaders</h3>
+            <p>Review flagged findings, approve coaching actions, track decision rationale, maintain audit trails.</p>
+          </div>
+          <div class="info-card">
+            <h3>Compliance Teams</h3>
+            <p>Audit quality decisions, verify evidence trails, export compliance reports, track policy adherence.</p>
+          </div>
+          <div class="info-card">
+            <h3>Operations Teams</h3>
+            <p>Monitor pipeline runs, track data flows, enforce access controls, maintain retention policies.</p>
+          </div>
+          <div class="info-card">
+            <h3>Legal &amp; Risk Teams</h3>
+            <p>Verify that quality decisions, customer claims and AI outputs are traceable to source interactions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ FINAL CTA ════════ -->
+    <section class="section" id="final-cta" style="background: var(--color-ink); color: var(--color-on-dark);">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <h2 class="section-title" style="color: var(--color-on-dark);">See evidence-backed governance in action</h2>
+          <p class="section-lede" style="color: var(--color-on-dark-muted);">
+            Request a demo to see how Tessavra provides audit trails, evidence traceability and manager approval workflows for regulated support environments.
+          </p>
+        </div>
+        <div class="hero-actions" data-reveal style="justify-content: center;">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="/security" class="btn btn-outline" style="color: var(--color-on-dark); border-color: var(--color-on-dark-muted);">Explore security &amp; data control</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   /* Single source of truth for the /ai-info "last updated" date — update
    * this value only; the page reads it at render time rather than having
    * the date hand-typed anywhere in the HTML. */
-  const AI_INFO_LAST_UPDATED = { iso: '2026-08-05', label: 'August 5, 2026' };
+  const AI_INFO_LAST_UPDATED = { iso: '2026-08-06', label: 'August 6, 2026' };
 
   /* ------------------------------------------------------------------
    * AI-info page date stamp — no-ops on every other page.

@@ -98,23 +98,28 @@ Resolution: section ids use routes-config.js names so nav mega-menu links resolv
 ## TWCM-PR5 — integrations overview + Salesforce page (COMPLETED)
 
 Merged via PR #3 (2026-08-06 14:20Z), merge commit `7a86345`.
-- /integrations/index.html (462 lines) — hub page with 8 category anchors, developers section, final CTA
-- /integrations/salesforce/index.html (631 lines) — dedicated Salesforce integration page
+- /integrations/index.html (461 lines) — hub page with 8 category anchors, developers section, final CTA
+- /integrations/salesforce/index.html (477 lines) — dedicated Salesforce integration page
+
+**Commits:** `d1189d5` (chore/hygiene), `3f5412e` (integrations hub), `d056231` (Salesforce page). Merged via PR #3, merge commit `7a86345`. Verification PASS 14:31Z (Ordelith Verification Agent, all checks).
 
 **Validation passed:**
 - Both pages well-formed (1 h1, no dup IDs)
 - Metadata/canonical/OG exact match vs briefs
-- Structured-data trio (WebPage + BreadcrumbList + SoftwareApplication)
+- Structured-data: pair (WebPage + SoftwareApplication) on hub pages per amended convention; /integrations has no BreadcrumbList (consistent with hub-page pattern)
 - All required anchors present (#contact-centre-telephony, #crm-systems, #meeting-research-tools, #files-apis-webhooks, #salesforce-workflows, #data-warehouse-pipelines, #operational-system-sync, #alerts-actions, #developers)
 - Body links materialized per brief FROM lists
 - Claim scan clean (no forbidden terms, no certification claims)
 - Nav/footer byte-identical to routes-config.js spec
 - Demo CTAs mailto:hello@tessavra.com (no /request-demo)
 
+**Meta-description ruling (Coordinator, 14:20Z):**
+- Integrations brief (integrations.md) metadata section self-contradicts: meta-description field says "one sentence" but the provided text is two sentences. Resolution: used the brief's actual provided text (which is coherent and within length limits). No rework needed; recorded for brief-maintenance.
+
 **Coordinator rulings applied:**
 - FROM lists as body links (binding rule from PR4)
 - Demo CTAs mailto: until PR7 swap
-- Structured-data trio per convention ruling
+- Structured-data convention: pair (WebPage + SoftwareApplication) on hub pages; trio (WebPage + BreadcrumbList + SoftwareApplication) on sub-pages. /integrations correctly implements the pair as a hub page.
 - Nav/footer byte-identical
 
 ## TWCM-PR6 — security, how-it-works, ai-info refresh, platform use-case section (IN PROGRESS)
@@ -131,7 +136,7 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
 **Binding rules:**
 - FROM lists as body links
 - Zero /request-demo hrefs; demo CTAs mailto:
-- Structured-data trio (WebPage + SoftwareApplication on sub-pages)
+- Structured-data convention: pair (WebPage + SoftwareApplication) on hub pages; trio (WebPage + BreadcrumbList + SoftwareApplication) on sub-pages
 - Nav/footer byte-identical
 - Claims per GLOBAL_VOICE_AND_CLAIMS.md
 - Homepage untouched (DPA HOLD)
@@ -141,10 +146,10 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
 - PR6 scope and binding rules
 
 ### Commit 2: /security/index.html
-- 454 lines built from security.md brief
+- 453 lines built from security.md brief
 - **Validation passed:**
   - Well-formed (1 h1, no dup IDs)
-  - Metadata: "Security & Data Control — Tessavra" (37 chars), description 154 chars, canonical https://tessavra.com/security
+  - Metadata: "Security &amp; Data Control — Tessavra" (38 chars raw, 35 rendered), description 151 chars, canonical https://tessavra.com/security
   - Structured-data: WebPage + SoftwareApplication
   - Required anchors: #security-overview, #capabilities, #data-privacy, #access-controls, #auditability, #responsible-ai, #subprocessors, #compliance, #data-processing
   - 10 sections: hero, overview, capabilities checklist, data privacy, access controls, auditability, responsible AI, subprocessors, compliance posture, data processing terms, final CTA
@@ -156,10 +161,10 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
   - Demo CTAs: mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request
 
 ### Commit 3: /how-it-works/index.html
-- 458 lines built from how-it-works.md brief
+- 457 lines built from how-it-works.md brief
 - **Validation passed:**
   - Well-formed (1 h1, no dup IDs)
-  - Metadata: "How It Works — Tessavra" (26 chars), description 155 chars, canonical https://tessavra.com/how-it-works
+  - Metadata: "How It Works — Tessavra" (23 chars), description 151 chars, canonical https://tessavra.com/how-it-works
   - Structured-data: WebPage + SoftwareApplication
   - Required anchors: #overview, #capture, #evaluate, #review, #act, #differentiators, #demo
   - 9 sections: hero, 4-stage overview, capture, evaluate, review, act, differentiators checklist, demo preview, final CTA
@@ -182,7 +187,7 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
 
 ### Commit 5: /platform/index.html use-case section
 - Added "Explore by use case" section (id="solutions") before </main>
-- Platform page now 440 lines (was 409)
+- Platform page now 439 lines (was 409)
 - **Validation passed:**
   - Well-formed (1 h1, no dup IDs)
   - #solutions anchor present
@@ -201,7 +206,15 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
 ### Coordinator rulings applied
 - FROM lists as body links (binding rule)
 - Demo CTAs mailto: until PR7 swap
-- Structured-data trio per convention ruling
+- Structured-data convention: pair (WebPage + SoftwareApplication) on hub pages; trio (WebPage + BreadcrumbList + SoftwareApplication) on sub-pages
 - Nav/footer byte-identical
 - Ordelith removed from ai-info (forbidden term on public site)
+
+### Commit 1 trailer note
+- `11f8e84` (chore: PR5 completion + PR6 records) carries no Co-authored-by or Signed-off-by trailers. All four build commits (`e39ed59`, `258f862`, `0ee1d38`, `c673c54`) carry both trailers. 4 of 5 commits carry trailers.
+
+### PR6 completion (merged 2026-08-06 16:06Z)
+- PR #4 merged at `7ffc4d3` 16:06Z.
+- Verification PASS 16:14Z (Ordelith Verification Agent, all 9 checks).
+- Merge-before-verdict noted: merge landed 4 minutes before gate dispatch, 8 minutes before verdict. Content passed clean — no rework required, but flagged as process risk for future stages.
 

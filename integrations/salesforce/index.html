@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salesforce Conversation Intelligence — Tessavra</title>
+  <meta name="description" content="Enrich Salesforce records with transcripts, quality results, customer signals. Deliver evidence-backed conversation intelligence into Salesforce workflows.">
+  <link rel="canonical" href="https://tessavra.com/integrations/salesforce">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Salesforce Conversation Intelligence — Tessavra">
+  <meta property="og:description" content="Enrich Salesforce records with transcripts, quality results, customer signals. Deliver evidence-backed conversation intelligence into Salesforce workflows.">
+  <meta property="og:url" content="https://tessavra.com/integrations/salesforce">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Salesforce Conversation Intelligence — Tessavra",
+    "url": "https://tessavra.com/integrations/salesforce",
+    "description": "Enrich Salesforce records with transcripts, quality results, customer signals. Deliver evidence-backed conversation intelligence into Salesforce workflows."
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Integrations", "item": "https://tessavra.com/integrations"},
+      {"@type": "ListItem", "position": 2, "name": "Salesforce", "item": "https://tessavra.com/integrations/salesforce"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Conversation intelligence platform for enterprise customer support, quality assurance, customer experience and research teams.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ════════ HERO ════════ -->
+    <section class="section hero-section" id="hero">
+      <div class="container-narrow">
+        <h1>Conversation intelligence that lives in Salesforce</h1>
+        <p>Tessavra delivers transcripts, quality findings and customer signals directly into Salesforce records — so your teams see evidence-backed conversation intelligence in the workflows they already use.</p>
+        <div class="cta-group">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="#salesforce-workflow" class="btn btn-secondary">See Salesforce workflows</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 1: CHALLENGES ════════ -->
+    <section class="section" id="challenges">
+      <div class="container-narrow">
+        <h2>The Salesforce challenge</h2>
+        <div class="ledger-list">
+          <div class="ledger-item">
+            <h3>Conversation intelligence lives outside Salesforce</h3>
+            <p>Sales, support and customer success teams work in Salesforce, but conversation transcripts, quality results and customer signals live in separate tools. Switching between systems slows workflows and buries insights.</p>
+          </div>
+          <div class="ledger-item">
+            <h3>Manual data entry or no data at all</h3>
+            <p>Teams manually copy call summaries, customer issues or quality notes into Salesforce — time-consuming, inconsistent, and often skipped. Without automated delivery, conversation intelligence never reaches CRM records.</p>
+          </div>
+          <div class="ledger-item">
+            <h3>No evidence for customer claims</h3>
+            <p>When a customer signal (churn risk, feature request, competitive mention) is noted in Salesforce, there's often no link back to the conversation where that signal appeared — making it hard to verify or act on.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 2: SOLUTION ════════ -->
+    <section class="section-alt" id="solution">
+      <div class="container-narrow">
+        <h2>How Tessavra enriches Salesforce</h2>
+        <div class="step-list">
+          <div class="step-item">
+            <h3>Enrich Salesforce records automatically</h3>
+            <p>Tessavra delivers transcripts, summaries, quality results, customer signals and evidence-backed findings into Salesforce records — Cases, Accounts, Contacts, Opportunities, custom objects — without manual data entry.</p>
+          </div>
+          <div class="step-item">
+            <h3>Link intelligence to conversation evidence</h3>
+            <p>Every quality finding, customer signal and AI-generated summary delivered to Salesforce includes a link back to the source transcript and the specific conversational moment that produced it.</p>
+          </div>
+          <div class="step-item">
+            <h3>Keep teams in Salesforce</h3>
+            <p>Sales, support and customer success teams see conversation intelligence in the records they're already reviewing — no need to switch tools, log into separate dashboards, or hunt for transcripts.</p>
+          </div>
+        </div>
+        <p><a href="/platform">See how the Tessavra platform works</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 3: SALESFORCE WORKFLOW ════════ -->
+    <section class="section" id="salesforce-workflow">
+      <div class="container">
+        <h2>Salesforce workflow</h2>
+        <div class="feature-row">
+          <div class="feature-visual">
+            <div class="workflow-diagram">
+              <div class="workflow-step">
+                <p class="step-number">1</p>
+                <p class="step-label">Capture</p>
+              </div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step">
+                <p class="step-number">2</p>
+                <p class="step-label">Analyze</p>
+              </div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step">
+                <p class="step-number">3</p>
+                <p class="step-label">Deliver</p>
+              </div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step">
+                <p class="step-number">4</p>
+                <p class="step-label">Act</p>
+              </div>
+            </div>
+            <p class="data-caption">Illustrative example for demonstration purposes.</p>
+          </div>
+          <div class="feature-copy">
+            <p><strong>Capture:</strong> Tessavra ingests interaction data from Salesforce-connected telephony, meeting tools, or uploaded files associated with Salesforce records.</p>
+            <p><strong>Analyze:</strong> Conversations are transcribed, evaluated for quality, and analyzed for customer signals (churn risk, feature requests, competitive mentions, escalation patterns).</p>
+            <p><strong>Deliver:</strong> Tessavra delivers structured outputs into Salesforce records — transcripts, summaries, quality scores, customer signals, evidence links.</p>
+            <p><strong>Act:</strong> Sales, support and customer success teams see conversation intelligence in Salesforce, click through to review evidence, and take action without leaving their workflow.</p>
+            <p><a href="/platform/workflow-pipelines">Learn more about workflow pipelines</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 4: DELIVERABLES ════════ -->
+    <section class="section-alt" id="deliverables">
+      <div class="container">
+        <h2>What Tessavra delivers to Salesforce</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Transcripts &amp; summaries</h3>
+            <p>Full conversation transcripts, speaker-identified and timestamped. AI-generated summaries for quick review.</p>
+          </div>
+          <div class="info-card">
+            <h3>Quality results</h3>
+            <p>Quality scores from configured scorecards, with evidence links to the transcript lines that produced each score.</p>
+          </div>
+          <div class="info-card">
+            <h3>Customer signals</h3>
+            <p>Churn risk indicators, feature requests, competitive mentions, escalation patterns — surfaced and delivered to relevant Salesforce records.</p>
+          </div>
+          <div class="info-card">
+            <h3>Evidence links</h3>
+            <p>Every delivered finding includes a link back to the source transcript and the specific conversational moment — no unsupported claims.</p>
+          </div>
+          <div class="info-card">
+            <h3>Speaker &amp; metadata</h3>
+            <p>Speaker identification (customer, agent, manager), call duration, channel (phone, chat, meeting), timestamp.</p>
+          </div>
+          <div class="info-card">
+            <h3>Theme &amp; sentiment</h3>
+            <p>Recurring customer themes, sentiment indicators — linked to supporting conversation evidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 5: USE CASES ════════ -->
+    <section class="section" id="use-cases">
+      <div class="container">
+        <h2>Salesforce use cases</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Support &amp; customer success</h3>
+            <p>Enrich Salesforce Cases with quality results, customer signals and conversation transcripts. Surface churn risk, track support quality, coach agents with evidence.</p>
+          </div>
+          <div class="info-card">
+            <h3>Sales teams</h3>
+            <p>Deliver sales call transcripts, deal intelligence and competitive mentions into Salesforce Opportunities. See what prospects said, what objections surfaced, what competitors were mentioned.</p>
+          </div>
+          <div class="info-card">
+            <h3>Account management</h3>
+            <p>Surface customer health signals, feature requests and satisfaction indicators. Track conversation trends across the account lifecycle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 6: CAPABILITIES ════════ -->
+    <section class="section-alt" id="capabilities">
+      <div class="container">
+        <h2>Integration capabilities</h2>
+        <ul class="checklist">
+          <li><strong>Automated record enrichment</strong> — Deliver Tessavra intelligence into Salesforce records without manual data entry</li>
+          <li><strong>Evidence-linked findings</strong> — Every delivered signal includes a link back to the source transcript</li>
+          <li><strong>Multi-object support</strong> — Enrich Cases, Accounts, Contacts, Opportunities, custom objects</li>
+          <li><strong>Configurable delivery rules</strong> — Choose what data goes where, when, and under what conditions</li>
+          <li><strong>Scheduled &amp; real-time delivery</strong> — Batch updates or real-time enrichment</li>
+          <li><strong>Audit trails</strong> — Track what data was delivered to which Salesforce records, when</li>
+          <li><strong>Governed workflows</strong> — Approval gates, review queues, manager override tracked in Salesforce</li>
+          <li><strong>Two-way sync</strong> — Pull interaction metadata from Salesforce, deliver intelligence back</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 7: IMPLEMENTATION ════════ -->
+    <section class="section" id="implementation">
+      <div class="container-narrow">
+        <div class="info-card">
+          <h2>Productised pipelines, not one-click install</h2>
+          <p><strong>Configured workflows:</strong> Tessavra's Salesforce integration is built as configured pipelines that capture interaction data, route it through analysis, and deliver structured outputs to your Salesforce instance.</p>
+          <p><strong>Implementation scope:</strong> Setup includes: Salesforce object mapping, field mapping, delivery rules, approval workflows, error handling. Typically involves collaboration between Tessavra support, your Salesforce admin, and operations teams.</p>
+          <p><strong>Ongoing management:</strong> Operations teams monitor pipeline runs, adjust delivery rules, and maintain integration health via Tessavra's workflow dashboard.</p>
+        </div>
+        <p class="disclaimer">Specific Salesforce workflows and object mappings are configured during implementation.</p>
+      </div>
+    </section>
+
+    <!-- ════════ SECTION 8: FINAL CTA ════════ -->
+    <section class="section section-ink">
+      <div class="container" style="text-align: center;">
+        <h2>See Salesforce conversation intelligence in action</h2>
+        <p>Request a demo to see how Tessavra delivers quality findings, customer signals and conversation transcripts into your Salesforce workflows.</p>
+        <div class="cta-group">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="/integrations" class="btn btn-secondary">Explore integrations</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

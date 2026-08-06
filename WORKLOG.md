@@ -253,3 +253,99 @@ Branch: `feature/twcm-pr7-request-demo-contact` from `main` @ `94f1f0a`.
 - Plain contact mailtos (`mailto:hello@tessavra.com"`) remain untouched
 - Post-swap target: 0 demo mailtos site-wide
 
+
+### Commit 1: WORKLOG records (`c2b4fd0`)
+- PR #5 merged at `94f1f0a` 16:22Z
+- PR7 scope and rulings recorded
+- PR7 section opened
+
+### Commit 2: /request-demo + /contact pages (`a5709da`)
+**Files:** `request-demo/index.html`, `contact/index.html`
+
+**Evidence (request-demo):**
+- `<title>Request a Demo — Tessavra</title>` — matches brief
+- `<meta name="description">` trimmed to 160 chars — matches brief
+- `<link rel="canonical" href="https://tessavra.com/request-demo">`
+- OG: type, title, description, url, site_name, image — all present
+- SD pair: WebPage + SoftwareApplication (per coordinator ruling)
+- Anchors: `#demo-form`, `#what-youll-see`, `#who-requests-demos` — all present
+- Form fields: name, email, company, role (dropdown), use-case (dropdown), team-size (dropdown, optional), current-tools (textarea, optional), additional-notes (textarea, optional) — all match brief
+- Consent sentence present, privacy-link clause omitted — per ruling
+- Script.js mailto-bridge — zero backend
+
+**Evidence (contact):**
+- `<title>Contact — Tessavra</title>` — matches brief
+- `<meta name="description">` — matches brief
+- `<link rel="canonical" href="https://tessavra.com/contact">`
+- OG: type, title, description, url, site_name, image — all present
+- SD trio: WebPage + ContactPage + Organization (per brief JSON-LD blocks)
+- Anchors: `#contact-form`, `#contact-options`, `#common-inquiries`, `#company-info` — all present
+- Form fields: name, email, subject (dropdown), message (textarea), company (optional) — match brief
+- Consent sentence present, privacy-link clause omitted — per ruling
+- Company info: Tessavra Ltd, SC897449, International House, 38 Thistle Street, Edinburgh EH2 1EN — per brief
+
+### Commit 3: CTA swap (`c84f212`)
+- Pre-swap: 68 demo mailto CTAs site-wide (verified via rg count)
+- Post-swap: 0 demo mailtos remaining in site pages (verified via rg count)
+- `.scratch*` templates retain legacy mailtos (not served, not in tree)
+- 72 `/request-demo` hrefs across all 19 pages (verified via rg count)
+- Plain `mailto:hello@tessavra.com` contact links untouched
+- All 19 pages consistent: nav + footer + body CTAs
+
+### Commit 4: sitemap.xml + robots.txt (`8245338`)
+- `sitemap.xml`: 19 routes derived from routes-config.js
+- `robots.txt`: `User-agent: *`, `Allow: /`, `Sitemap: https://tessavra.com/sitemap.xml`
+- All 19 routes present with correct canonical URLs
+
+### Final pass (commit 5): repo-wide metadata/SD consistency + light perf review
+
+**Metadata audit (all 19 pages):**
+- All pages: correct `<title>`, `<meta name="description">`, `<link rel="canonical" href="...">`
+- All pages: OG tags (og:type, og:title, og:description, og:url, og:site_name, og:image)
+- Homepage: missing canonical + OG — fixed in this commit
+- Structured data: pair (WebPage + SoftwareApplication) on hub pages; trio (WebPage + ContactPage + Organization) on contact per brief; pair (WebPage + SoftwareApplication) on request-demo per coordinator ruling
+
+**DPA-terms language finding:**
+- `security/index.html` carries 3 mentions of "data processing agreements/terms" and "DPA" from PR6 build (pre-PR7, merged at `94f1f0a`)
+- PR7 ruling: "zero DPA-terms language anywhere in PR7 output" — PR7 pages (request-demo, contact) carry zero DPA language
+- Security page DPA language is pre-existing PR6 output, not introduced by PR7
+- **Logged as open gap** — removal is a separate change request if desired
+
+**Privacy policy open gap:**
+- No `/privacy-policy` page exists
+- Consent sentences present on both forms; privacy-link clause omitted per ruling
+- Privacy policy page creation logged as open gap for follow-up
+
+**Light perf review:**
+- Largest HTML: `solutions/product-ux-research/index.html` at ~36KB — acceptable for static content
+- CSS: `styles.css` at ~41KB — single stylesheet, no duplication
+- JS: `script.js` at ~10KB — minimal, no framework overhead
+- External: Google Fonts (DM Sans, Inter, IBM Plex Mono) with `preconnect` hints — standard pattern
+- Assets: `assets/logo.png` — single image asset (~1.2MB directory), no unoptimised large images
+- No render-blocking scripts (script.js at end of body)
+- No inline styles beyond scoped layout
+- **No perf concerns identified** — all pages are static HTML with minimal CSS/JS footprint
+
+### Structured data summary
+| Page | SD Types |
+|------|----------|
+| `/` (homepage) | SoftwareApplication |
+| `/request-demo` | WebPage + SoftwareApplication |
+| `/contact` | WebPage + ContactPage + Organization |
+| `/platform` (hub) | WebPage + SoftwareApplication |
+| `/platform/*` (sub-pages) | WebPage + BreadcrumbList + SoftwareApplication |
+| `/solutions/*` | WebPage + BreadcrumbList + SoftwareApplication |
+| `/integrations` (hub) | WebPage + SoftwareApplication |
+| `/integrations/salesforce` | WebPage + BreadcrumbList + SoftwareApplication |
+| `/security` | WebPage + SoftwareApplication |
+| `/how-it-works` | WebPage + SoftwareApplication |
+| `/ai-info` | WebPage + SoftwareApplication |
+
+### Final validation
+- Demo mailtos remaining: 0 (verified via `rg -c 'mailto:[^"]*\?subject=Tessavra%20Demo%20Request'`)
+- `/request-demo` hrefs: 72 across all pages (verified via `rg -c`)
+- DPA-terms in PR7 pages: 0
+- Consent sentences: present on both forms
+- Privacy-link clauses: omitted on both forms
+- Sitemap routes: 19 (verified)
+- Robots.txt: present, references sitemap

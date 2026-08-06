@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security &amp; Data Control — Tessavra</title>
+  <meta name="description" content="Access controls, audit trails, configurable retention, encrypted data handling. Built for regulated support environments where data governance matters.">
+  <link rel="canonical" href="https://tessavra.com/security">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Security &amp; Data Control — Tessavra">
+  <meta property="og:description" content="Access controls, audit trails, configurable retention, encrypted data handling. Built for regulated support environments where data governance matters.">
+  <meta property="og:url" content="https://tessavra.com/security">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Security &amp; Data Control — Tessavra",
+    "url": "https://tessavra.com/security",
+    "description": "Access controls, audit trails, configurable retention, encrypted data handling. Built for regulated support environments where data governance matters."
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Conversation intelligence platform for enterprise customer support, quality assurance, customer experience and research teams.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="section" id="hero">
+    <div class="container">
+      <h1>Built for regulated environments where data governance matters</h1>
+      <p>Tessavra provides access controls, audit trails, configurable retention and encrypted data handling — so regulated support organizations can use conversation intelligence while maintaining data governance and compliance posture.</p>
+      <div class="cta-group">
+        <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+        <a href="#security-overview" class="btn btn-secondary">See security capabilities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: SECURITY OVERVIEW -->
+  <section class="section-alt" id="security-overview">
+    <div class="container-narrow">
+      <h2>Security and data control for regulated support</h2>
+      <p>Tessavra is designed for high-volume, regulated support organizations where quality decisions must be auditable, data handling must be governed, and access must be controlled.</p>
+      <p>Tessavra provides the security and governance capabilities that support compliance posture — access controls, audit trails, retention policies, encrypted data handling. We do not claim SOC 2, ISO 27001, HIPAA, GDPR certification or other compliance certifications.</p>
+      <p>If your organization requires specific compliance frameworks, data processing terms or security documentation, <a href="mailto:hello@tessavra.com">contact us</a> to discuss your requirements.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SECURITY CAPABILITIES CHECKLIST -->
+  <section class="section" id="capabilities">
+    <div class="container">
+      <h2>Security and data control capabilities</h2>
+      <ul class="checklist">
+        <li><strong>Data Privacy</strong> — Configurable data handling, retention policies, encrypted storage and transit. <a href="#data-privacy">Learn more</a></li>
+        <li><strong>Access Controls</strong> — Role-based permissions, team-level access, user authentication, session management. <a href="#access-controls">Learn more</a></li>
+        <li><strong>Auditability</strong> — Audit logs for access, review, delivery, retention actions. <a href="#auditability">Learn more</a></li>
+        <li><strong>Responsible AI</strong> — Evidence-linked outputs, human review workflows, model behavior transparency. <a href="#responsible-ai">Learn more</a></li>
+        <li><strong>Subprocessors</strong> — Transparent subprocessor list, third-party vendor governance. <a href="#subprocessors">Learn more</a></li>
+        <li><strong>Data Control</strong> — Customer-configurable retention, deletion, data export, access restrictions</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 3: DATA PRIVACY -->
+  <section class="section-alt" id="data-privacy">
+    <div class="container">
+      <div class="feature-row">
+        <div class="feature-visual">
+          <div class="mock-panel">
+            <p class="mock-title">Data privacy controls</p>
+            <div class="mock-row"><span class="mock-label">Retention policy</span><span class="mock-value">90 days — interactions, transcripts, findings</span></div>
+            <div class="mock-row"><span class="mock-label">Encryption</span><span class="mock-value">At rest and in transit</span></div>
+            <div class="mock-row"><span class="mock-label">Data isolation</span><span class="mock-value">Per-organization, no cross-customer sharing</span></div>
+            <div class="mock-row"><span class="mock-label">Data export</span><span class="mock-value">Full export or deletion on request</span></div>
+            <p class="data-caption">Illustrative example for demonstration purposes.</p>
+          </div>
+        </div>
+        <div class="feature-copy">
+          <h2>Your data, your controls</h2>
+          <p><strong>Configurable retention policies:</strong> Define how long interaction data, transcripts, quality results and analysis findings are retained. Automated retention enforcement with audit logs.</p>
+          <p><strong>Encrypted storage and transit:</strong> Interaction data, transcripts and analysis results are encrypted at rest and in transit.</p>
+          <p><strong>Data isolation:</strong> Customer data is isolated per organization. No cross-customer data sharing or training on customer data without explicit agreement.</p>
+          <p><strong>Data export and deletion:</strong> Customers can export their data or request deletion per retention policy and legal requirements.</p>
+          <p><strong>Configurable data handling:</strong> Choose which interaction data fields are captured, stored, analyzed or delivered to downstream systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ACCESS CONTROLS -->
+  <section class="section" id="access-controls">
+    <div class="container">
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <h2>Control who sees what</h2>
+          <p><strong>Role-based permissions:</strong> Define roles (QA manager, QA analyst, support lead, operations admin) with specific permissions for viewing interactions, reviewing findings, approving workflows, configuring pipelines.</p>
+          <p><strong>Team-level access:</strong> Restrict access to interactions by team, channel, or customer segment. QA analysts see only the interactions assigned to their review scope.</p>
+          <p><strong>User authentication:</strong> Secure authentication with session management, password policies, multi-factor authentication support (where available).</p>
+          <p><strong>Access audit logs:</strong> Track who accessed which interactions, when, and what actions they took — for compliance audits and internal security review.</p>
+          <p><a href="/platform/governance">Learn more about governance workflows</a></p>
+        </div>
+        <div class="feature-visual">
+          <div class="mock-panel">
+            <p class="mock-title">Access control panel</p>
+            <div class="mock-row"><span class="mock-label">QA Manager</span><span class="mock-value">Full access — review, approve, configure</span></div>
+            <div class="mock-row"><span class="mock-label">QA Analyst</span><span class="mock-value">Assigned interactions only — review, score</span></div>
+            <div class="mock-row"><span class="mock-label">Support Lead</span><span class="mock-value">Team interactions — view, coach</span></div>
+            <div class="mock-row"><span class="mock-label">Operations Admin</span><span class="mock-value">Pipeline config — no interaction content</span></div>
+            <p class="data-caption">Illustrative example for demonstration purposes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: AUDITABILITY -->
+  <section class="section-alt" id="auditability">
+    <div class="container">
+      <div class="feature-row">
+        <div class="feature-visual">
+          <div class="mock-panel">
+            <p class="mock-title">Audit log</p>
+            <div class="mock-row"><span class="mock-label">Access</span><span class="mock-value">qa-analyst-01 viewed interaction #4821 — 14:32</span></div>
+            <div class="mock-row"><span class="mock-label">Review</span><span class="mock-value">qa-manager confirmed score override — 14:45</span></div>
+            <div class="mock-row"><span class="mock-label">Delivery</span><span class="mock-value">Pipeline delivered findings to Salesforce Case #10234 — 15:01</span></div>
+            <div class="mock-row"><span class="mock-label">Retention</span><span class="mock-value">47 interactions archived per 90-day policy — 03:00</span></div>
+            <p class="data-caption">Illustrative example for demonstration purposes.</p>
+          </div>
+        </div>
+        <div class="feature-copy">
+          <h2>Audit trails for every action</h2>
+          <p><strong>Access logs:</strong> Track who accessed which interactions, transcripts, quality results — with timestamps and user IDs.</p>
+          <p><strong>Review and decision logs:</strong> Track manager reviews, quality score confirmations, overrides, coaching actions — with decision rationale.</p>
+          <p><strong>Delivery logs:</strong> Track what data was delivered to which downstream systems (Salesforce, data warehouse, alerts) and when.</p>
+          <p><strong>Retention and deletion logs:</strong> Track retention policy enforcement, data archival, deletion actions — for compliance reporting.</p>
+          <p><strong>Pipeline execution logs:</strong> Track workflow runs, data flows, success/failure rates — for operations monitoring and compliance audits.</p>
+          <p><strong>Export for compliance:</strong> Export audit logs for regulatory reporting, internal audits or compliance reviews.</p>
+          <p><a href="/platform/governance">Learn more about evidence and governance</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: RESPONSIBLE AI -->
+  <section class="section" id="responsible-ai">
+    <div class="container">
+      <div class="info-card">
+        <h2>AI outputs linked to evidence, reviewed by humans</h2>
+        <p><strong>Evidence-linked AI outputs:</strong> Every AI-generated quality score, summary, theme or customer signal includes a direct link to the transcript evidence that produced it. No black-box outputs.</p>
+        <p><strong>Human review workflows:</strong> AI-generated findings are surfaced for manager review. Managers verify results against conversation context and confirm, override or escalate.</p>
+        <p><strong>Manager override tracking:</strong> When managers override an AI-generated result, the override reason and approver are logged for audit.</p>
+        <p><strong>Model behavior transparency:</strong> Tessavra documents what AI models do (transcription, quality evaluation, theme surfacing) and how outputs are generated (analysis against configured rubrics, theme clustering).</p>
+        <p><strong>No autonomous actions:</strong> Tessavra does not take customer-facing actions autonomously. AI-generated findings are surfaced for human review and decision-making.</p>
+        <p><a href="/platform/governance">Learn more about governance workflows</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SUBPROCESSORS -->
+  <section class="section-alt" id="subprocessors">
+    <div class="container">
+      <div class="info-card">
+        <h2>Transparent subprocessor governance</h2>
+        <p><strong>Subprocessor list:</strong> Tessavra maintains a list of third-party subprocessors involved in service delivery (infrastructure providers, AI model vendors, analytics tools).</p>
+        <p><strong>Vendor governance:</strong> Subprocessors are selected based on security, data handling and compliance posture. Tessavra tracks vendor agreements and data processing commitments.</p>
+        <p><strong>Customer notification:</strong> Customers are notified of subprocessor changes that affect data handling or service delivery.</p>
+        <p><strong>Request subprocessor list:</strong> <a href="mailto:hello@tessavra.com">Contact us</a> to request the current subprocessor list and data processing details.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: COMPLIANCE POSTURE -->
+  <section class="section" id="compliance">
+    <div class="container-narrow">
+      <h2>Built to support your compliance posture</h2>
+      <p><strong>Capabilities, not certifications:</strong> Tessavra provides the security and governance capabilities that support compliance frameworks — access controls, audit trails, retention policies, encrypted data handling, evidence traceability.</p>
+      <p><strong>No compliance certifications:</strong> Tessavra does not claim SOC 2, ISO 27001, HIPAA, GDPR certification or other compliance certifications. We do not claim penetration testing, third-party audits, uptime SLAs or data residency guarantees.</p>
+      <p><strong>Contact for compliance discussions:</strong> If your organization requires specific compliance frameworks, data processing agreements or security documentation, <a href="mailto:hello@tessavra.com">contact us</a> to discuss your requirements. We work with regulated support organizations to address their compliance needs.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 9: DATA PROCESSING TERMS -->
+  <section class="section-alt" id="data-processing">
+    <div class="container">
+      <div class="info-card">
+        <h2>Contact us to discuss data processing requirements</h2>
+        <p><strong>Data processing discussions:</strong> If your organization requires data processing agreements, data protection terms or specific contractual commitments, <a href="mailto:hello@tessavra.com">contact us</a> to discuss your requirements.</p>
+        <p><strong>No standard DPA template:</strong> Tessavra does not currently publish a standard data processing agreement template. Questions about data handling or contractual terms: <a href="mailto:hello@tessavra.com">contact us</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: FINAL CTA -->
+  <section class="section section-ink">
+    <div class="container" style="text-align: center;">
+      <h2>Discuss security and compliance requirements</h2>
+      <p>Request a demo to see Tessavra's security and data governance capabilities, or contact us to discuss your specific compliance needs.</p>
+      <div class="cta-group">
+        <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+        <a href="mailto:hello@tessavra.com" class="btn btn-secondary">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

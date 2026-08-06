@@ -188,12 +188,83 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  /* ------------------------------------------------------------------
+   * Form mailto-bridge — composes form fields into a mailto: link on
+   * submit. Zero backend, zero credentials, nothing stored client-side.
+   * A real CRM endpoint can replace this later without touching markup.
+   * ------------------------------------------------------------------ */
+  function initFormMailtoBridge() {
+    const DEMO_EMAIL = 'hello@tessavra.com';
+
+    function handleSubmit(formEl, emailTo, subjectPrefix) {
+      formEl.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Native HTML5 validation runs first (required, type=email, minlength).
+        if (!formEl.checkValidity()) {
+          formEl.reportValidity();
+          return;
+        }
+
+        var fields = [];
+        var formData = new FormData(formEl);
+        formData.forEach(function (value, key) {
+          if (value && value.trim()) {
+            // Format: "Field Name: value"
+            var label = key.replace(/-/g, ' ').replace(/\b\w/g, function (c) {
+              return c.toUpperCase();
+            });
+            fields.push(label + ': ' + value.trim());
+          }
+        });
+
+        var body = fields.join('\n');
+        var subject = subjectPrefix;
+        var mailto = 'mailto:' + emailTo
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+
+        // Show inline success before navigating away
+        var btn = formEl.querySelector('button[type="submit"]');
+        var originalText = btn ? btn.textContent : '';
+        if (btn) {
+          btn.textContent = 'Opening email client…';
+          btn.disabled = true;
+        }
+
+        // Navigate to the composed mailto
+        window.location.href = mailto;
+
+        // Re-enable after a short delay in case the browser stays on-page
+        setTimeout(function () {
+          if (btn) {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }
+        }, 3000);
+      });
+    }
+
+    // Demo request form
+    var demoForm = document.getElementById('demo-request-form');
+    if (demoForm) {
+      handleSubmit(demoForm, DEMO_EMAIL, 'Tessavra Demo Request');
+    }
+
+    // Contact form
+    var contactForm = document.getElementById('contact-form-el');
+    if (contactForm) {
+      handleSubmit(contactForm, DEMO_EMAIL, 'Tessavra Contact');
+    }
+  }
+
   function init() {
     initNavToggle();
     initScrollReveal();
     initMegaMenu();
     initHeaderShadow();
     initAiInfoDate();
+    initFormMailtoBridge();
   }
 
   if (document.readyState === 'loading') {

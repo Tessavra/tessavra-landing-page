@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Experience — Tessavra</title>
+  <meta name="description" content="CX teams: surface customer themes, pain points and feature requests at scale. Every theme links to supporting conversation evidence for prioritization.">
+  <link rel="canonical" href="https://tessavra.com/solutions/customer-experience">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Customer Experience — Tessavra">
+  <meta property="og:description" content="CX teams: surface customer themes, pain points and feature requests at scale. Every theme links to supporting conversation evidence for prioritization.">
+  <meta property="og:url" content="https://tessavra.com/solutions/customer-experience">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Customer Experience — Tessavra",
+    "url": "https://tessavra.com/solutions/customer-experience",
+    "description": "CX teams: surface customer themes, pain points and feature requests at scale. Every theme links to supporting conversation evidence for prioritization."
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Solutions", "item": "https://tessavra.com/platform#solutions"},
+      {"@type": "ListItem", "position": 2, "name": "Customer Experience", "item": "https://tessavra.com/solutions/customer-experience"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Conversation intelligence platform for enterprise customer support, quality assurance, customer experience and research teams.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ════════ NAVIGATION ════════ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main">
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Customer Experience</p>
+          <h1>Understand what customers are saying — without reading every transcript</h1>
+          <p class="hero-lede">
+            Tessavra surfaces recurring customer themes, pain points and feature requests across thousands of support interactions — with evidence links so CX teams see patterns without losing the customer voice.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+            <a href="#voc-workflow" class="btn btn-outline">See VoC intelligence in action</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ THE CX TEAM CHALLENGE ════════ -->
+    <section class="section" id="challenges">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">The CX team challenge</h2>
+        </div>
+
+        <ol class="ledger-list">
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Feedback scattered across systems</h3>
+              <p>Customer signals live in support tickets, call transcripts, chat logs, NPS surveys — no single view of "what are customers telling us?" CX teams spend more time hunting for feedback than analyzing it.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>Themes buried in volume</h3>
+              <p>Reading through hundreds of support transcripts to find recurring complaints or feature requests is time-consuming. Without theme surfacing, CX teams rely on support team memory or anecdotal reports.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Context lost in aggregation</h3>
+              <p>Traditional text analytics produce keyword counts or sentiment scores ("47 mentions of 'billing'") but don't show what customers said about billing or which conversations need attention.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ HOW TESSAVRA HELPS CX TEAMS ════════ -->
+    <section class="section section-alt" id="solution">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">How Tessavra helps CX teams</h2>
+        </div>
+
+        <ol class="step-list" data-reveal>
+          <li class="step-item">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Surface customer themes at scale</h3>
+              <p>Tessavra analyzes thousands of support interactions and surfaces recurring themes — product issues, feature requests, billing complaints, onboarding friction, competitive mentions — without requiring manual tagging or keyword setup.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Link themes to conversation evidence</h3>
+              <p>Every theme includes a list of supporting conversation examples, with direct links to the transcript lines where customers expressed that issue. CX teams see patterns and hear the customer voice in context.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Prioritize and route for action</h3>
+              <p>Themes are organized by frequency, urgency and impact. CX teams see which issues are growing, which are resolved, and which require immediate routing to product, engineering or operations teams.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p data-reveal><a href="/platform/conversation-intelligence">Learn how Tessavra analyzes conversations →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ VOC WORKFLOW ════════ -->
+    <section class="section" id="voc-workflow">
+      <div class="container feature-row reverse">
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">VoC intelligence workflow</p>
+          <h2>From conversations to customer intelligence</h2>
+          <p>
+            Tessavra turns raw customer conversations into an organized
+            ledger of themes — each one backed by the conversations that
+            surfaced it, so CX teams act on evidence instead of anecdotes.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Capture</strong>&nbsp;— ingest customer interactions from contact centers, CRM systems, support platforms and meeting tools — automatically, on schedule or via API</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Analyze</strong>&nbsp;— conversations analyzed for recurring themes, customer pain points, feature requests, positive signals and churn risk indicators</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Surface</strong>&nbsp;— themes surfaced in a VoC ledger, organized by topic, frequency and urgency, each with supporting conversation examples and evidence links</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Act</strong>&nbsp;— CX teams review themes with full customer context, prioritize issues, and route feedback to product, engineering, support ops or account teams</li>
+          </ul>
+          <p><a href="/platform/voice-of-customer">Learn more about voice of customer →</a></p>
+        </div>
+
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example voice-of-customer theme ledger showing recurring customer themes with mention counts and trend direction.">
+            <div class="theme-row">
+              <span class="theme-name">Billing disputes — proration</span>
+              <span class="theme-count">142 mentions</span>
+              <span class="theme-trend up">rising</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Feature request — dark mode</span>
+              <span class="theme-count">96 mentions</span>
+              <span class="theme-trend flat">stable</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Onboarding — SSO setup</span>
+              <span class="theme-count">61 mentions</span>
+              <span class="theme-trend up">rising</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ UNDERSTANDING THE CUSTOMER VOICE ════════ -->
+    <section class="section section-alt" id="customer-voice">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Understanding the customer voice</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card" id="understand-customer-voice">
+            <h3>Product issues</h3>
+            <p>Recurring complaints about broken features, confusing workflows or technical problems. See what customers are struggling with, in their own words.</p>
+          </div>
+          <div class="info-card">
+            <h3>Feature requests</h3>
+            <p>What customers are asking for — new capabilities, workflow improvements, integration requests. Track which requests appear most frequently and which customers are asking.</p>
+          </div>
+          <div class="info-card">
+            <h3>Billing &amp; policy friction</h3>
+            <p>Billing disputes, policy confusion, pricing concerns — surface where customers are frustrated with terms, pricing or account management.</p>
+          </div>
+          <div class="info-card">
+            <h3>Onboarding &amp; adoption challenges</h3>
+            <p>Where new customers get stuck — setup confusion, feature discovery issues, training gaps. Identify onboarding friction before it becomes churn.</p>
+          </div>
+          <div class="info-card">
+            <h3>Competitive mentions</h3>
+            <p>When customers mention competing products or switching considerations. Understand what customers value in alternatives and why they're comparing.</p>
+          </div>
+          <div class="info-card">
+            <h3>Positive signals</h3>
+            <p>What's working well — features customers love, successful onboarding, praise for support agents. Not just complaints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ PRIORITIZING AND ROUTING FEEDBACK ════════ -->
+    <section class="section" id="prioritization">
+      <div class="container feature-row">
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example voice-of-customer dashboard showing themes with priority, routing destination and resolution status.">
+            <div class="theme-row">
+              <span class="theme-name">Proration billing disputes</span>
+              <span class="theme-count">142 mentions</span>
+              <span class="theme-trend up">routed: product</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">SSO onboarding friction</span>
+              <span class="theme-count">61 mentions</span>
+              <span class="theme-trend flat">investigating</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">Export CSV — row limits</span>
+              <span class="theme-count">38 mentions</span>
+              <span class="theme-trend up">fixed · mentions falling</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">Prioritizing and routing feedback</p>
+          <h2>From themes to action</h2>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Prioritize by frequency and impact</strong>&nbsp;— see which themes appear most often, which are escalating, and which affect high-value customer segments</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Track trends over time</strong>&nbsp;— monitor how themes grow, stabilize or decline, and see whether a product release, process change or training initiative resolved a recurring issue</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Route to the right teams</strong>&nbsp;— share themes with product managers (feature requests), engineering (bugs), support ops (knowledge gaps) or account teams (churn risk), with supporting conversation evidence</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Close the loop</strong>&nbsp;— mark themes as "investigating," "fixed" or "closed," and track when customer mentions decline after action is taken</li>
+          </ul>
+          <p><a href="/integrations">Connect the systems your feedback flows through →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ KEY CAPABILITIES FOR CX TEAMS ════════ -->
+    <section class="section section-alt" id="capabilities">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Key capabilities for CX teams</h2>
+        </div>
+
+        <ul class="checklist" data-reveal>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Theme surfacing at scale</strong>&nbsp;— Analyze thousands of interactions, surface recurring customer themes</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence-linked feedback</strong>&nbsp;— Every theme includes supporting conversation examples</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Multi-source capture</strong>&nbsp;— Ingest feedback from support calls, chats, tickets, meetings</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Filter &amp; prioritize</strong>&nbsp;— View themes by topic, team, time, urgency</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Customer voice preservation</strong>&nbsp;— See what customers actually said, not aggregated sentiment</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Trend tracking</strong>&nbsp;— Monitor how themes grow, stabilize or decline over time</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Cross-team routing</strong>&nbsp;— Share themes with product, engineering, support ops, account teams</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Resolution tracking</strong>&nbsp;— Mark themes as resolved and track when customer mentions decline</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ════════ CX TEAM OUTCOMES ════════ -->
+    <section class="section" id="outcomes">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">CX team outcomes</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Understand customer voice at scale</h3>
+            <p>Surface recurring customer themes across thousands of interactions — without manually reading every transcript or tagging every ticket.</p>
+          </div>
+          <div class="info-card">
+            <h3>Prioritize product &amp; ops issues</h3>
+            <p>See which customer complaints, feature requests and friction points appear most frequently — and route them to the teams who can fix them.</p>
+          </div>
+          <div class="info-card">
+            <h3>Track theme trends</h3>
+            <p>Monitor how customer feedback evolves over time. See whether product releases, process changes or training initiatives resolve recurring issues.</p>
+          </div>
+          <div class="info-card">
+            <h3>Close the loop faster</h3>
+            <p>Reduce the time from "customer complaint" to "issue routed to engineering" — with evidence-backed feedback that shows customer impact.</p>
+          </div>
+        </div>
+
+        <p data-reveal><a href="/platform">Explore the full Tessavra platform →</a></p>
+        <p data-reveal><a href="/solutions/product-ux-research">Explore product &amp; UX research intelligence →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ WHO ON THE CX TEAM USES TESSAVRA ════════ -->
+    <section class="section section-alt" id="roles">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Who on the CX team uses Tessavra</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>CX Leaders</h3>
+            <p>Surface customer themes, track trends, prioritize improvement initiatives, route feedback to action.</p>
+          </div>
+          <div class="info-card">
+            <h3>Product Managers</h3>
+            <p>Understand feature requests, product issues and competitive mentions. See which requests are most frequent and which customers are asking.</p>
+          </div>
+          <div class="info-card">
+            <h3>Support Operations</h3>
+            <p>Identify recurring support issues, knowledge gaps and policy friction. Route systemic issues to the right teams for resolution.</p>
+          </div>
+          <div class="info-card">
+            <h3>Account Teams</h3>
+            <p>Surface churn risk indicators, at-risk customer signals and frustration patterns — with evidence for customer outreach.</p>
+          </div>
+        </div>
+
+        <p data-reveal><a href="/solutions/customer-support">Explore the support team context →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ FINAL CTA ════════ -->
+    <section class="section" id="final-cta" style="background: var(--color-ink); color: var(--color-on-dark);">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <h2 class="section-title" style="color: var(--color-on-dark);">See VoC intelligence in action</h2>
+          <p class="section-lede" style="color: var(--color-on-dark-muted);">
+            Request a demo to see how Tessavra helps CX teams surface customer themes at scale — with evidence, not summaries.
+          </p>
+        </div>
+        <div class="hero-actions" data-reveal style="justify-content: center;">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="/platform/voice-of-customer" class="btn btn-outline" style="color: var(--color-on-dark); border-color: var(--color-on-dark-muted);">Explore voice of customer</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

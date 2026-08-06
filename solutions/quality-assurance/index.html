@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Assurance — Tessavra</title>
+  <meta name="description" content="QA teams: evaluate 100% of interactions with evidence-linked scorecards, run calibration sessions, track scoring consistency. Built for regulated support.">
+  <link rel="canonical" href="https://tessavra.com/solutions/quality-assurance">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quality Assurance — Tessavra">
+  <meta property="og:description" content="QA teams: evaluate 100% of interactions with evidence-linked scorecards, run calibration sessions, track scoring consistency. Built for regulated support.">
+  <meta property="og:url" content="https://tessavra.com/solutions/quality-assurance">
+  <meta property="og:site_name" content="Tessavra">
+  <meta property="og:image" content="https://tessavra.com/assets/logo.png">
+
+  <!--
+    Fonts: DM Sans (headings), Inter (body/UI), IBM Plex Mono (reserved for
+    evidence/reference codes only). All three are licensed under the SIL
+    Open Font License 1.1 and are served via Google Fonts. See
+    FONT-LICENSES.md for the recorded licence details for this build.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Structured data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Quality Assurance — Tessavra",
+    "url": "https://tessavra.com/solutions/quality-assurance",
+    "description": "QA teams: evaluate 100% of interactions with evidence-linked scorecards, run calibration sessions, track scoring consistency. Built for regulated support."
+  }
+  </script>
+
+  <!-- Structured data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Solutions", "item": "https://tessavra.com/platform#solutions"},
+      {"@type": "ListItem", "position": 2, "name": "Quality Assurance", "item": "https://tessavra.com/solutions/quality-assurance"}
+    ]
+  }
+  </script>
+
+  <!-- Structured data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tessavra",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Conversation intelligence platform for enterprise customer support, quality assurance, customer experience and research teams.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Tessavra Ltd"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ════════ NAVIGATION ════════ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a href="/" class="brand">
+        <img src="../../assets/logo.png" alt="Tessavra" class="brand-logo"/>
+      </a>
+
+      <button
+        id="nav-toggle"
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-platform" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-platform">
+            Platform
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--platform" id="panel-platform" aria-hidden="true" aria-labelledby="trigger-platform">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured">
+                <p class="mega-col-title">Featured</p>
+                <a class="mega-featured-card" href="/platform">
+                  <span class="mega-featured-title">Platform Overview</span>
+                  <span class="mega-featured-desc">Turn customer interactions into evidence-backed intelligence that teams can review, trust and act on.</span>
+                </a>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Core Capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence">Conversation Intelligence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management">Quality Management</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/voice-of-customer">Voice of Customer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/ux-research">UX &amp; Research Intelligence</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Enterprise Foundation</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/workflow-pipelines">Workflow &amp; Pipeline Engine</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/governance">Evidence &amp; Governance</a></li>
+                </ul>
+                <p class="mega-col-title">Sub-capabilities</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#interaction-explorer">Interaction Explorer</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/conversation-intelligence#search-discovery">Search &amp; Discovery</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/platform/quality-management#scorecards">Scorecards</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-solutions" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-solutions">
+            Solutions
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--solutions" id="panel-solutions" aria-hidden="true" aria-labelledby="trigger-solutions">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <p class="mega-col-title">By Team</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support">Customer Support</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance">Quality Assurance</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience">Customer Experience</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/product-ux-research">Product &amp; UX Research</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">By Outcome</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#improve-quality-coverage">Improve quality coverage</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#coach-with-evidence">Coach with evidence</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-support#find-recurring-issues">Find recurring issues</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/customer-experience#understand-customer-voice">Understand the customer voice</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/solutions/quality-assurance#create-reviewable-ai-findings">Create reviewable AI findings</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-integrations" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-integrations">
+            Integrations
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--integrations mega-panel--align-right" id="panel-integrations" aria-hidden="true" aria-labelledby="trigger-integrations">
+            <div class="mega-panel-inner">
+              <div class="mega-col mega-col--featured mega-col--wide">
+                <p class="mega-col-title">Featured</p>
+                <div class="mega-featured-grid">
+                  <a class="mega-featured-card" href="/integrations#data-pipelines-automation">
+                    <span class="mega-featured-title">Data Pipelines &amp; Automation</span>
+                    <span class="mega-featured-desc">Ingest interaction data, enrich it with Tessavra intelligence, and deliver structured outputs into CRM, data, support and operational systems.</span>
+                  </a>
+                  <a class="mega-featured-card" href="/integrations/salesforce">
+                    <span class="mega-featured-title">Salesforce Conversation Intelligence</span>
+                    <span class="mega-featured-desc">Enrich Salesforce records with transcripts, summaries, speakers, quality results, customer signals and evidence-backed interaction intelligence.</span>
+                  </a>
+                </div>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Connect Data</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#contact-centre-telephony">Contact Centre &amp; Telephony</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#crm-systems">CRM Systems</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#meeting-research-tools">Meeting &amp; Research Tools</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#files-apis-webhooks">Files, APIs &amp; Webhooks</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <p class="mega-col-title">Activate Intelligence</p>
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/integrations#salesforce-workflows">Salesforce Workflows</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#data-warehouse-pipelines">Data Warehouse Pipelines</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#operational-system-sync">Operational System Sync</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/integrations#alerts-actions">Alerts &amp; Actions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/security" class="nav-link">Security</a>
+        </li>
+
+        <li class="nav-item has-mega">
+          <button class="nav-trigger" id="trigger-resources" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="panel-resources">
+            Resources
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--simple mega-panel--align-right" id="panel-resources" aria-hidden="true" aria-labelledby="trigger-resources">
+            <div class="mega-panel-inner">
+              <div class="mega-col">
+                <ul class="mega-list">
+                  <li class="mega-item"><a class="mega-link" href="/how-it-works">How It Works</a></li>
+                  <li class="mega-item"><a class="mega-link" href="/ai-info">Hey AI, learn about Tessavra</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-cta-item"><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary btn-sm">Request a demo</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main">
+
+    <!-- ════════ HERO ════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Quality Assurance</p>
+          <h1>QA teams that scale coverage without scaling headcount</h1>
+          <p class="hero-lede">
+            Tessavra evaluates 100% of support interactions against your quality rubric, links every score to transcript evidence, and surfaces the conversations that need QA review — so your team focuses on high-value analysis, not manual sampling.
+          </p>
+          <div class="hero-actions">
+            <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+            <a href="#qa-workflow" class="btn btn-outline">See QA workflows in action</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ THE QA TEAM CHALLENGE ════════ -->
+    <section class="section" id="challenges">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">The QA team challenge</h2>
+        </div>
+
+        <ol class="ledger-list">
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">01</span>
+            <div>
+              <h3>Sampling limits coverage</h3>
+              <p>QA teams manually review 1–2% of interactions. Scaling coverage means hiring more reviewers or accepting blind spots where policy breaches and quality issues hide.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">02</span>
+            <div>
+              <h3>Scoring consistency varies</h3>
+              <p>When QA analysts apply scorecards manually, scoring consistency differs. Without shared evidence, calibration sessions become subjective debates about what "good" looks like.</p>
+            </div>
+          </li>
+          <li class="ledger-item" data-reveal>
+            <span class="ledger-index">03</span>
+            <div>
+              <h3>Audit trails are incomplete</h3>
+              <p>Regulated support environments require evidence trails for quality decisions. Manual QA processes often lack audit logs for who reviewed what, when, and why scores were assigned.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════ HOW TESSAVRA HELPS QA TEAMS ════════ -->
+    <section class="section section-alt" id="solution">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">How Tessavra helps QA teams</h2>
+        </div>
+
+        <ol class="step-list" data-reveal>
+          <li class="step-item">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Scale to 100% coverage</h3>
+              <p>Tessavra evaluates every interaction against your configured quality scorecard and surfaces the conversations that need QA review — policy breaches, low scores, edge cases, coaching opportunities. QA teams review findings with full evidence context, not random samples.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Calibrate with shared evidence</h3>
+              <p>Instead of debating whether an agent "sounded professional," QA teams review the exact transcript lines together and decide whether scorecard criteria were met. Calibration sessions become evidence-backed discussions, not opinion debates.</p>
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Maintain audit-ready workflows</h3>
+              <p>Every quality score, QA review, manager override and calibration outcome is logged with timestamps, reviewer IDs and decision rationale — creating an audit trail for compliance reporting and operational review.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p data-reveal><a href="/platform/conversation-intelligence">Learn how Tessavra analyzes conversations →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ QA WORKFLOW ════════ -->
+    <div id="create-reviewable-ai-findings"></div>
+    <section class="section" id="qa-workflow">
+      <div class="container feature-row">
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">QA workflow</p>
+          <h2>Flag → Review → Confirm → Audit</h2>
+          <p>
+            Tessavra evaluates 100% of interactions against your quality
+            scorecard, then routes the conversations that need QA review
+            into a prioritized queue — so analysts spend their time on
+            high-value review, not random sampling.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Automatic evaluation</strong>&nbsp;— every interaction evaluated against your scorecard; low scores, policy breaches and edge cases flagged for QA review</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>QA review queue</strong>&nbsp;— flagged interactions organized by priority, each with the quality score, flagged criteria and evidence links</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence-backed review</strong>&nbsp;— analysts open the full transcript, verify findings against conversation context, and confirm or override Tessavra's evaluation</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Audit log</strong>&nbsp;— every review, confirmation, override and scoring decision logged: who reviewed what, when, and what rationale was provided</li>
+          </ul>
+          <p><a href="/platform/quality-management">Learn more about quality management →</a></p>
+        </div>
+
+        <div class="feature-visual" data-reveal>
+          <div class="queue-panel" role="img" aria-label="Example QA review queue showing three flagged support interactions with their flagged criterion and review status.">
+            <div class="queue-row">
+              <span class="queue-ref">CALL-40218</span>
+              <span class="queue-detail">De-escalation on repeat contact<span>Voice · 4m 12s</span></span>
+              <span class="status-badge open">Open</span>
+            </div>
+            <div class="queue-row">
+              <span class="queue-ref">CHAT-19042</span>
+              <span class="queue-detail">Required disclosure missing<span>Chat · 6m 03s</span></span>
+              <span class="status-badge review">In review</span>
+            </div>
+            <div class="queue-row">
+              <span class="queue-ref">CALL-40201</span>
+              <span class="queue-detail">Scorecard criterion met after override<span>Voice · 3m 47s</span></span>
+              <span class="status-badge confirmed">Confirmed</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ CALIBRATION WITH SHARED EVIDENCE ════════ -->
+    <div id="coach-with-evidence"></div>
+    <section class="section section-alt" id="calibration">
+      <div class="container feature-row reverse">
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">Calibration with shared evidence</p>
+          <h2>Calibration sessions backed by evidence, not opinions</h2>
+          <p>
+            Calibration is where scoring consistency is won or lost. With
+            Tessavra, QA managers and analysts review the same set of
+            interactions together — with every discussion grounded in the
+            exact transcript moments under review.
+          </p>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Shared transcript review</strong>&nbsp;— QA managers and analysts apply scorecard criteria to the same interactions and discuss scoring decisions together</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence-linked discussion</strong>&nbsp;— instead of abstract debates about "professionalism" or "empathy," sessions focus on specific transcript moments: "Did the agent acknowledge the customer's concern in line 14?"</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Track scoring variance</strong>&nbsp;— calibration logs show where reviewers agree, where they diverge, and which scorecard criteria need clearer definitions</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Refine scorecards</strong>&nbsp;— use calibration data to improve scorecard wording, add examples, or split ambiguous criteria into more specific measures</li>
+          </ul>
+          <p><a href="/platform/quality-management#calibration">Learn more about calibration workflows →</a></p>
+        </div>
+
+        <div class="feature-visual" data-reveal>
+          <div class="calibration-panel" role="img" aria-label="Example calibration log showing scorecard criteria under review, reviewer scores, and variance outcomes.">
+            <div class="calibration-row">
+              <div class="calibration-row__meta">
+                <span>12 Feb</span><span>Reviewer: J. Okafor</span><span>Sample: 8 conversations</span>
+              </div>
+              <p class="calibration-row__outcome">Outcome: rubric criterion on repeat-contact handling clarified after disagreement on two calls.</p>
+            </div>
+            <div class="calibration-row">
+              <div class="calibration-row__meta">
+                <span>29 Jan</span><span>Reviewer: M. Alvarez</span><span>Sample: 6 conversations</span>
+              </div>
+              <p class="calibration-row__outcome">Outcome: reviewer scores aligned on all sampled conversations; no rubric change required.</p>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ CONFIGURABLE SCORECARDS ════════ -->
+    <section class="section" id="scorecards">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Your quality rubric, evidence-linked</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Configurable criteria</h3>
+            <p>Build scorecards with weighted criteria that reflect your support standards — acknowledgment, empathy, policy adherence, issue resolution, professional tone, script compliance.</p>
+          </div>
+          <div class="info-card">
+            <h3>Evidence-linked evaluation</h3>
+            <p>Tessavra evaluates each scorecard criterion and links the result to the specific transcript lines that support or contradict that criterion.</p>
+          </div>
+          <div class="info-card">
+            <h3>Multi-scorecard support</h3>
+            <p>Use different scorecards for different teams, channels or interaction types — tier-1 support vs. escalations, phone vs. chat, sales vs. support.</p>
+          </div>
+          <div class="info-card">
+            <h3>QA override</h3>
+            <p>QA analysts can override Tessavra's evaluation when context requires human judgment — with override reasons tracked in audit logs.</p>
+          </div>
+        </div>
+
+        <p class="section-lede" data-reveal style="margin-top: var(--space-5);">
+          Quality standards that reflect your organization's priorities, evaluated at scale with evidence for review.
+        </p>
+      </div>
+    </section>
+
+    <!-- ════════ AUDIT-READY QUALITY MANAGEMENT ════════ -->
+    <section class="section section-alt" id="audit-trails">
+      <div class="container feature-row">
+        <div class="feature-visual" data-reveal>
+          <div class="theme-ledger" role="img" aria-label="Example audit log showing quality decision records with timestamps, reviewer IDs and override reasons.">
+            <div class="theme-row">
+              <span class="theme-name">2026-07-21 09:14 — override</span>
+              <span class="theme-count">J. Okafor</span>
+              <span class="theme-trend up">rationale logged</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">2026-07-21 08:47 — review</span>
+              <span class="theme-count">M. Alvarez</span>
+              <span class="theme-trend flat">CHAT-19042 confirmed</span>
+            </div>
+            <div class="theme-row">
+              <span class="theme-name">2026-07-20 16:30 — calibration</span>
+              <span class="theme-count">4 reviewers</span>
+              <span class="theme-trend up">criteria refined</span>
+            </div>
+          </div>
+          <p class="data-caption">Illustrative example for demonstration purposes.</p>
+        </div>
+
+        <div class="feature-copy" data-reveal>
+          <p class="eyebrow">Audit-ready quality management</p>
+          <h2>Audit trails for every quality decision</h2>
+          <ul class="checklist">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Review logs</strong>&nbsp;— track which QA analysts reviewed which interactions, when, and what scoring decisions were made</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Override tracking</strong>&nbsp;— when analysts override Tessavra's evaluation, the override reason and approver are logged</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Calibration records</strong>&nbsp;— track calibration session results, scoring variance, and refinements to scorecard criteria</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence preservation</strong>&nbsp;— source transcripts, quality scores and decision logs are retained according to your configured retention policies</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Compliance reporting</strong>&nbsp;— export audit logs, decision records and evidence chains for compliance audits, regulatory reporting or internal quality reviews</li>
+          </ul>
+          <p><a href="/platform/governance">Learn more about evidence and governance →</a></p>
+          <p><a href="/security">See how Tessavra handles security and data control →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ KEY CAPABILITIES FOR QA TEAMS ════════ -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Key capabilities for QA teams</h2>
+        </div>
+
+        <ul class="checklist" data-reveal>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>100% interaction coverage</strong>&nbsp;— Evaluate every conversation, flag the ones that need QA review</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Evidence-linked scorecards</strong>&nbsp;— Every score links to transcript evidence</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>QA review queues</strong>&nbsp;— Prioritized list of flagged interactions for analyst review</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Calibration workflows</strong>&nbsp;— Run evidence-backed calibration sessions to align scoring</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Manager override with rationale</strong>&nbsp;— QA analysts can override scores with tracked reasons</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Audit trails</strong>&nbsp;— Log every review, override, calibration outcome</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Multi-scorecard support</strong>&nbsp;— Use different rubrics for different teams or channels</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><strong>Compliance reporting</strong>&nbsp;— Export audit logs and evidence chains</li>
+        </ul>
+
+        <p data-reveal><a href="/integrations">Connect Tessavra to your contact centers and CRM systems →</a></p>
+
+        <p data-reveal><a href="/solutions/customer-support">Explore the broader support team context →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ QA TEAM OUTCOMES ════════ -->
+    <section class="section section-alt" id="outcomes">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">QA team outcomes</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>Scale coverage</h3>
+            <p>Move from manually reviewing 1–2% of interactions to evaluating 100%, with QA teams reviewing flagged findings instead of random samples.</p>
+          </div>
+          <div class="info-card">
+            <h3>Improve scoring consistency</h3>
+            <p>Calibrate with shared transcript evidence. Track scoring variance and refine scorecard criteria based on data, not opinions.</p>
+          </div>
+          <div class="info-card">
+            <h3>Maintain audit trails</h3>
+            <p>Log every quality decision, override and calibration outcome — audit-ready for compliance reporting and operational review.</p>
+          </div>
+          <div class="info-card">
+            <h3>Focus on high-value analysis</h3>
+            <p>QA teams spend less time on manual scoring and more time on edge cases, policy refinement and coaching analysis.</p>
+          </div>
+        </div>
+
+        <p data-reveal><a href="/platform">Explore the full Tessavra platform →</a></p>
+      </div>
+    </section>
+
+    <!-- ════════ WHO ON THE QA TEAM USES TESSAVRA ════════ -->
+    <section class="section" id="roles">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <h2 class="section-title">Who on the QA team uses Tessavra</h2>
+        </div>
+
+        <div class="info-grid" data-reveal>
+          <div class="info-card">
+            <h3>QA Managers</h3>
+            <p>Configure scorecards, run calibration sessions, track team performance, maintain audit trails.</p>
+          </div>
+          <div class="info-card">
+            <h3>QA Analysts</h3>
+            <p>Review flagged interactions, verify evidence, confirm or override scores, participate in calibration.</p>
+          </div>
+          <div class="info-card">
+            <h3>Compliance Leads</h3>
+            <p>Export audit logs, verify evidence trails, prepare compliance reports, track policy adherence.</p>
+          </div>
+          <div class="info-card">
+            <h3>Quality Operations</h3>
+            <p>Monitor QA coverage, track scoring consistency, integrate with support systems, maintain workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ FINAL CTA ════════ -->
+    <section class="section" id="final-cta" style="background: var(--color-ink); color: var(--color-on-dark);">
+      <div class="container">
+        <div class="section-header center" data-reveal>
+          <h2 class="section-title" style="color: var(--color-on-dark);">See Tessavra in action for QA teams</h2>
+          <p class="section-lede" style="color: var(--color-on-dark-muted);">
+            Request a demo to see how Tessavra helps QA teams scale to 100% coverage with evidence-linked scorecards and audit-ready workflows.
+          </p>
+        </div>
+        <div class="hero-actions" data-reveal style="justify-content: center;">
+          <a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request" class="btn btn-primary">Request a demo</a>
+          <a href="/platform/quality-management" class="btn btn-outline" style="color: var(--color-on-dark); border-color: var(--color-on-dark-muted);">Explore quality management</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <img src="../../assets/logo.png" alt="Tessavra" class="footer-logo"/>
+          <p class="footer-tagline">Conversation intelligence for enterprise customer support.</p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Platform</p>
+          <ul class="footer-links">
+            <li><a href="/platform">Platform overview</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request">Request a demo</a></li>
+            <li><a href="mailto:hello@tessavra.com">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="/how-it-works">How it works</a></li>
+            <li><a href="/ai-info">Hey AI, learn about Tessavra</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-locations">
+        <div class="footer-location">
+          <svg class="footer-location-flag" viewBox="0 0 30 18" aria-hidden="true">
+            <rect width="30" height="18" fill="#0065BD"/>
+            <path d="M0 0L30 18M30 0L0 18" stroke="#FFFFFF" stroke-width="4"/>
+          </svg>
+          <span>International House, 38 Thistle Street<br>Edinburgh, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-meta">&copy; 2026 Tessavra. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

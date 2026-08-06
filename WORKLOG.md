@@ -35,3 +35,19 @@ Base HEAD at resume: c6ad066 · Pages built from approved Brand Studio briefs.
 
 ## Commits
 - TWCM-PR3: on feature/evidence-ledger-landing-page (final SHA: run `git log -1`; amended from initial 31fc5c8 via 8201c8f) — 7 files, +2398/−1: .gitignore, WORKLOG.md, platform/conversation-intelligence/index.html (+13/−1 fix), platform/{voice-of-customer,ux-research,workflow-pipelines,governance}/index.html (new). Author: Derick <3790494+geek187@users.noreply.github.com>. Trailers: Co-authored-by Ordelith Engineering Agent; Co-authored-by Derick; Signed-off-by Derick. (Amended from initial 31fc5c8 to incorporate corrections 1–2.) Branch remains local-only (never pushed); push/PR timing is Derick's call.
+
+## TWCM-PR4 — four Wave 2 solutions pages (IN PROGRESS)
+
+Branch: feature/twcm-pr4-solutions · Base HEAD at resume: 9daa7cd (= origin/main) · Briefs: PLANS/TESSAVRA_SITE_BRIEFS/solutions-*.md.
+
+### State found at resume (2026-08-06 ~10:1xZ)
+- solutions/customer-support/index.html (610 lines) on disk, written ~00:48Z in a prior session; customer-experience/, product-ux-research/, quality-assurance/ empty.
+- .scratch-assembler.py (2 bytes, "ok") in repo root: NOT covered by gitignore (.scratch-*.html only). Will never be staged; explicit pathspec adds only. Flagged to Coordinator for removal/hygiene ruling.
+
+### Coordinator ruling applied (10:22Z, event 1731c1aa)
+- Brief INTERNAL LINKS "Links FROM this page" lists are binding requirements, not optional — materialised as BODY links at build time.
+- customer-support fix (applied this session): added body links /platform/conversation-intelligence (after #solution step-list), /solutions/quality-assurance (after #capabilities checklist), /platform (after #outcomes grid). Remaining FROM targets already present as body links: /platform/quality-management (×3), /platform/voice-of-customer, /integrations. Well-formedness re-run after edit: PASS (0 errors, 0 dup ids, 1 h1).
+- /platform "Explore by use case" section is queued for PR6 — /platform NOT touched in PR4.
+
+### PR7-swap exception (BINDING for all PR4 pages)
+- Demo CTAs remain mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request; NO /request-demo hrefs anywhere in PR4. PR7 must swap these mailto CTAs to /request-demo.

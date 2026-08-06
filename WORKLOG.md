@@ -51,3 +51,45 @@ Branch: feature/twcm-pr4-solutions · Base HEAD at resume: 9daa7cd (= origin/mai
 
 ### PR7-swap exception (BINDING for all PR4 pages)
 - Demo CTAs remain mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request; NO /request-demo hrefs anywhere in PR4. PR7 must swap these mailto CTAs to /request-demo.
+
+### PR4 completion (merged 2026-08-06 13:39Z)
+- Checkpoints 2–4: customer-support (610 lines), quality-assurance (631 lines), customer-experience, product-ux-research — all staged edits, all validated per-page.
+- Commit `676d648` on `feature/twcm-pr4-solutions`, pushed and merged via PR #2 (merge commit `4f0815e`).
+- Ordelith Verification Agent independently verified PR4 (13:59Z): all 8 checks PASS — metadata/canonical/OG exact, structured-data exact (with observation re: trio vs pair, see ruling below), anchors present, body links materialised, claim scan clean, nav/footer byte-identical, well-formedness clean, routes-config.js byOutcome anchors resolve.
+- Coordinator spot-check (14:02Z): confirmed PASS, corrected mailto count to 5 per page (4 demo CTAs + 1 footer Contact), ruled compliant.
+
+### Structured-data convention ruling (Coordinator, 14:02Z)
+- All page types use the full schema trio (WebPage + BreadcrumbList + SoftwareApplication) regardless of whether briefs specify only the pair. Consistent with PR3 platform pages; richer schema; SoftwareApplication is structural, not a claim. Recorded here rather than rewriting merged briefs.
+
+## TWCM-PR5 — integrations overview + Salesforce (IN PROGRESS)
+
+Branch: feature/twcm-pr5-integrations · Base HEAD: 4f0815e (= origin/main) · Briefs: PLANS/TESSAVRA_SITE_BRIEFS/integrations.md, integrations-salesforce.md.
+
+### Scope
+- /integrations/index.html — integrations hub (7 sections including #developers anchor replacing standalone /developers page).
+- /integrations/salesforce/index.html — dedicated Salesforce integration page.
+- No standalone /developers page; Section 6 #developers anchor handles developer documentation per brief.
+
+### Binding rules
+- FROM lists as **body** links (Coordinator ruling from PR4, carried forward).
+- Zero `/request-demo` hrefs; demo CTAs `mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request` until PR7 swap.
+- Structured-data trio (WebPage + BreadcrumbList + SoftwareApplication) per convention ruling above.
+- Nav/footer byte-identical per routes-config.js.
+- Claims per GLOBAL_VOICE_AND_CLAIMS.md; mandatory disclaimers included.
+
+### Hygiene (Commit 1, chore)
+- Deleted `.scratch-assembler.py` (2 bytes, untracked, flagged in PR4 verification).
+- Widened `.gitignore` from `.scratch-*.html` to `.scratch-*` (catches all scratch files).
+- WORKLOG updated: PR4 completion, verification PASS, structured-data convention ruling, PR5 section opened.
+
+### routes-config.js anchor mapping (INTEGRATIONS section)
+Nav anchors on integrations page must use routes-config.js paths (which differ from brief anchor IDs):
+- Brief `#contact-centre` → routes-config `#contact-centre-telephony`
+- Brief `#meeting-tools` → routes-config `#meeting-research-tools`
+- Brief `#files-apis` → routes-config `#files-apis-webhooks`
+- Brief `#data-pipelines` → routes-config `#data-pipelines-automation`
+- Brief `#salesforce-workflows` → routes-config `#salesforce-workflows` (match)
+- Brief `#data-warehouse` → routes-config `#data-warehouse-pipelines`
+- Brief `#operational-systems` → routes-config `#operational-system-sync`
+- Brief `#alerts-actions` → routes-config `#alerts-actions` (match)
+Resolution: section ids use routes-config.js names so nav mega-menu links resolve. Brief anchors that differ are aliased.

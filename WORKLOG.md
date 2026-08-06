@@ -93,3 +93,115 @@ Nav anchors on integrations page must use routes-config.js paths (which differ f
 - Brief `#operational-systems` → routes-config `#operational-system-sync`
 - Brief `#alerts-actions` → routes-config `#alerts-actions` (match)
 Resolution: section ids use routes-config.js names so nav mega-menu links resolve. Brief anchors that differ are aliased.
+
+
+## TWCM-PR5 — integrations overview + Salesforce page (COMPLETED)
+
+Merged via PR #3 (2026-08-06 14:20Z), merge commit `7a86345`.
+- /integrations/index.html (462 lines) — hub page with 8 category anchors, developers section, final CTA
+- /integrations/salesforce/index.html (631 lines) — dedicated Salesforce integration page
+
+**Validation passed:**
+- Both pages well-formed (1 h1, no dup IDs)
+- Metadata/canonical/OG exact match vs briefs
+- Structured-data trio (WebPage + BreadcrumbList + SoftwareApplication)
+- All required anchors present (#contact-centre-telephony, #crm-systems, #meeting-research-tools, #files-apis-webhooks, #salesforce-workflows, #data-warehouse-pipelines, #operational-system-sync, #alerts-actions, #developers)
+- Body links materialized per brief FROM lists
+- Claim scan clean (no forbidden terms, no certification claims)
+- Nav/footer byte-identical to routes-config.js spec
+- Demo CTAs mailto:hello@tessavra.com (no /request-demo)
+
+**Coordinator rulings applied:**
+- FROM lists as body links (binding rule from PR4)
+- Demo CTAs mailto: until PR7 swap
+- Structured-data trio per convention ruling
+- Nav/footer byte-identical
+
+## TWCM-PR6 — security, how-it-works, ai-info refresh, platform use-case section (IN PROGRESS)
+
+Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
+
+**Scope:**
+1. WORKLOG records (this commit)
+2. Build /security/index.html
+3. Build /how-it-works/index.html
+4. Apply ai-info refresh
+5. Add "Explore by use case" section to /platform/index.html
+
+**Binding rules:**
+- FROM lists as body links
+- Zero /request-demo hrefs; demo CTAs mailto:
+- Structured-data trio (WebPage + SoftwareApplication on sub-pages)
+- Nav/footer byte-identical
+- Claims per GLOBAL_VOICE_AND_CLAIMS.md
+- Homepage untouched (DPA HOLD)
+
+### Commit 1: WORKLOG records
+- PR5 completion record
+- PR6 scope and binding rules
+
+### Commit 2: /security/index.html
+- 454 lines built from security.md brief
+- **Validation passed:**
+  - Well-formed (1 h1, no dup IDs)
+  - Metadata: "Security & Data Control — Tessavra" (37 chars), description 154 chars, canonical https://tessavra.com/security
+  - Structured-data: WebPage + SoftwareApplication
+  - Required anchors: #security-overview, #capabilities, #data-privacy, #access-controls, #auditability, #responsible-ai, #subprocessors, #compliance, #data-processing
+  - 10 sections: hero, overview, capabilities checklist, data privacy, access controls, auditability, responsible AI, subprocessors, compliance posture, data processing terms, final CTA
+  - Claim scan clean: all certification terms (SOC 2, ISO 27001, HIPAA, GDPR, penetration testing, uptime SLA, data residency) appear only in negation context ("does not claim")
+  - Nav/footer byte-identical to integrations reference
+  - Body links: /platform, /platform/governance, mailto:hello@tessavra.com
+  - 11 mailto: links (4 demo CTAs + 7 contact links)
+  - Zero /request-demo hrefs
+  - Demo CTAs: mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request
+
+### Commit 3: /how-it-works/index.html
+- 458 lines built from how-it-works.md brief
+- **Validation passed:**
+  - Well-formed (1 h1, no dup IDs)
+  - Metadata: "How It Works — Tessavra" (26 chars), description 155 chars, canonical https://tessavra.com/how-it-works
+  - Structured-data: WebPage + SoftwareApplication
+  - Required anchors: #overview, #capture, #evaluate, #review, #act, #differentiators, #demo
+  - 9 sections: hero, 4-stage overview, capture, evaluate, review, act, differentiators checklist, demo preview, final CTA
+  - Claim scan clean
+  - Nav/footer byte-identical
+  - Body links: /platform, /platform/conversation-intelligence, /platform/quality-management, /platform/governance, /platform/workflow-pipelines, /integrations
+  - 6 mailto: links (demo CTAs)
+  - Zero /request-demo hrefs
+
+### Commit 4: ai-info refresh
+- Removed forbidden "Ordelith" term from terminology-avoid list (line 557)
+- Updated last-updated timestamp from 2026-08-05 to 2026-08-06 (script.js line 15)
+- **Validation passed:**
+  - Cross-checked against Wave 1/2 briefs: terminology aligned, capabilities complete, use cases covered, claim restrictions honored
+  - Incorporation data verified: SC897449, 2026-07-29, Thistle Street Edinburgh
+  - No forbidden terms (Radar, Praxis, Lattice, Buzz, AI Gateway, Model Router, SoundScribe, Ordelith)
+  - No certification claims (SOC 2, ISO 27001, HIPAA, GDPR, penetration testing, uptime SLA)
+  - No DPA claims
+  - Correct terminology present: conversation intelligence, interaction, evidence, quality management, voice of customer, productised pipeline
+
+### Commit 5: /platform/index.html use-case section
+- Added "Explore by use case" section (id="solutions") before </main>
+- Platform page now 440 lines (was 409)
+- **Validation passed:**
+  - Well-formed (1 h1, no dup IDs)
+  - #solutions anchor present
+  - Two-column layout: "By team" (4 solutions pages) + "By outcome" (5 outcome links)
+  - Body links: /solutions/customer-support, /solutions/quality-assurance, /solutions/customer-experience, /solutions/product-ux-research
+  - Nav/footer byte-identical
+  - Homepage untouched (DPA HOLD)
+
+### Repo-wide validation
+- All pages well-formed via html.parser
+- Nav/footer byte-identical across security, how-it-works, platform, integrations
+- Claim scan clean on all touched pages
+- Zero /request-demo hrefs site-wide
+- All mailto: demo CTAs correctly formatted
+
+### Coordinator rulings applied
+- FROM lists as body links (binding rule)
+- Demo CTAs mailto: until PR7 swap
+- Structured-data trio per convention ruling
+- Nav/footer byte-identical
+- Ordelith removed from ai-info (forbidden term on public site)
+

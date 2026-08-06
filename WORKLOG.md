@@ -218,3 +218,38 @@ Branch: `feature/twcm-pr6-security-how-it-works` from `main` @ `7a86345`.
 - Verification PASS 16:14Z (Ordelith Verification Agent, all 9 checks).
 - Merge-before-verdict noted: merge landed 4 minutes before gate dispatch, 8 minutes before verdict. Content passed clean — no rework required, but flagged as process risk for future stages.
 
+### PR6-RECORDS completion (merged 2026-08-06 16:22Z)
+- PR #5 merged at `94f1f0a` 16:22:32Z.
+- WORKLOG corrections applied: line counts, metadata, conventions, completion record.
+- `main` now at `94f1f0a` — PR6 fully closed.
+
+## TWCM-PR7 — request-demo, contact, CTA swap, sitemap, final pass (IN PROGRESS)
+
+Branch: `feature/twcm-pr7-request-demo-contact` from `main` @ `94f1f0a`.
+
+### Scope
+1. Build `/request-demo/index.html` from brief
+2. Build `/contact/index.html` from brief
+3. Binding CTA swap: all 68 `mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request` hrefs → `/request-demo` across all 19 pages
+4. `sitemap.xml` (19 routes from routes-config.js) + `robots.txt`
+5. Final repo-wide metadata/structured-data consistency pass + light perf review
+
+### Coordinator rulings (dispatch 16:34Z, event f93c0071)
+1. **DPA-terms: OUT** — standing no-change default. Zero DPA-terms language anywhere in PR7 output.
+2. **Privacy policy:** consent sentence kept below both forms; privacy-link clause omitted (no policy page exists); privacy policy page logged as open gap.
+3. **Form submission:** script.js mailto-bridge (fields composed into mailto on submit) — zero backend, zero credentials, nothing stored.
+4. **Structured data:** pair (WebPage + SoftwareApplication) on `/request-demo` and `/contact` as top-level pages — unless brief JSON-LD blocks say otherwise (contact brief specifies trio: WebPage + ContactPage + Organization; honored as written).
+5. **Merge strictly after verification verdict** (PR6 process-risk correction).
+
+### Binding rules
+- Zero `/request-demo` hrefs in pre-swap pages until CTA swap step
+- Zero DPA-terms language
+- Claims per GLOBAL_VOICE_AND_CLAIMS.md
+- Consent sentence kept, privacy-link clause omitted
+- Derick trailers on every commit
+
+### Pre-swap mailto inventory (verified 2026-08-06)
+- **68 demo mailtos** (`mailto:hello@tessavra.com?subject=Tessavra%20Demo%20Request`) across all 19 pages
+- Plain contact mailtos (`mailto:hello@tessavra.com"`) remain untouched
+- Post-swap target: 0 demo mailtos site-wide
+
